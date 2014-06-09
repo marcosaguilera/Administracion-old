@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="313" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<style name="Title" isDefault="false" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" isDefault="false" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" isDefault="false" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" isDefault="false" fontName="Arial" fontSize="12"/>
+	<queryString>
+		<![CDATA[SELECT DISTINCT
+     curso.Id_Curso,
+     curso.Curso,
+     Grupo_Familiar.`Grupo_Familiar`,
+     alum.`apellido1` AS alu_ape1,
+     alum.`apellido2` AS alu_ape2,
+     alum.`nombre1` AS alu_nom1,
+     alum.`nombre2` AS alu_nom2,
+     alum.`telefono` AS telef,
+     alum.`NOMBRE_LDAP`,
+     alum.`Clave`,
+     alum.`email`,
+     padre.`apellido1` AS padre_ape1,
+     padre.`apellido2` AS padre_ape2,
+     padre.`nombre1` AS nomb_nom1,
+     padre.`nombre2` AS nomb_nom2,
+     padre.`celular` AS celular_padre,
+     padre.`NOMBRE_LDAP`,
+     padre.`Clave`,
+     padre.`email`,
+     madre.`apellido1` AS madre_ape1,
+     madre.`apellido2` AS madre_ape2,
+     madre.`nombre1` AS madre_nom1,
+     madre.`nombre2` AS madre_nom2,
+     madre.`celular` AS celular_madre,
+     madre.`NOMBRE_LDAP`,
+     madre.`Clave`,
+     madre.`email`,
+     madre.`Sexo`,
+     madre.`Tipo_Persona_Id_Tipo_Persona` AS madre_Tipo_Persona_Id_Tipo_Persona,
+     Tipo_Persona.`Tipo_Persona` AS Tipo_Persona_Tipo_Persona,
+     Tipo_Persona_A.`Tipo_Persona` AS Tipo_Persona_A_Tipo_Persona,
+     Tipo_Persona_B.`Tipo_Persona` AS Tipo_Persona_B_Tipo_Persona
+FROM
+     `Insc_Alum_Curso` Insc_Alum_Curso INNER JOIN `PERSONA` alum ON Insc_Alum_Curso.`Persona_Id_Persona` = alum.`Id_Persona`
+     INNER JOIN `Grupo_Familiar` Grupo_Familiar ON alum.`Grupo_Familiar_ID_Grupo_Familiar` = Grupo_Familiar.`ID_Grupo_Familiar`
+     INNER JOIN `persona` padre ON alum.`Grupo_Familiar_ID_Grupo_Familiar` = padre.`Grupo_Familiar_ID_Grupo_Familiar`
+     INNER JOIN `persona` madre ON alum.`Grupo_Familiar_ID_Grupo_Familiar` = madre.`Grupo_Familiar_ID_Grupo_Familiar`
+     INNER JOIN `Tipo_Persona` Tipo_Persona_A ON alum.`Tipo_Persona_Id_Tipo_Persona` = Tipo_Persona_A.`Id_Tipo_Persona`
+     INNER JOIN `Tipo_Persona` Tipo_Persona ON madre.`Tipo_Persona_Id_Tipo_Persona` = Tipo_Persona.`Id_Tipo_Persona`
+     INNER JOIN `Tipo_Persona` Tipo_Persona_B ON padre.`Tipo_Persona_Id_Tipo_Persona` = Tipo_Persona_B.`Id_Tipo_Persona`
+     INNER JOIN `Curso` Curso ON Insc_Alum_Curso.`Curso_Id_Curso` = Curso.`Id_Curso`
+WHERE
+     padre.Tipo_Persona_Id_Tipo_Persona = 2
+ AND madre.Tipo_Persona_Id_Tipo_Persona = 12
+ AND alum.Tipo_Persona_Id_Tipo_Persona = 1
+ AND Insc_Alum_Curso.SY_Id_SY = 2
+ORDER BY
+     Curso.Id_Curso ASC,
+     alum.Apellido1 ASC,
+     alum.Apellido2 ASC,
+     alum.Nombre1 ASC,
+     alum.Nombre2 ASC]]>
+	</queryString>
+	<field name="Id_Curso" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Curso" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Grupo_Familiar" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="alu_ape1" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="alu_ape2" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="alu_nom1" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="alu_nom2" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="telef" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="NOMBRE_LDAP" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Clave" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="email" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="padre_ape1" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="padre_ape2" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nomb_nom1" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nomb_nom2" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="celular_padre" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="madre_ape1" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="madre_ape2" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="madre_nom1" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="madre_nom2" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="celular_madre" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Sexo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="madre_Tipo_Persona_Id_Tipo_Persona" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Tipo_Persona_Tipo_Persona" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Tipo_Persona_A_Tipo_Persona" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Tipo_Persona_B_Tipo_Persona" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<group name="Curso_id_Curso" isStartNewPage="true">
+		<groupExpression><![CDATA[$F{Id_Curso}]]></groupExpression>
+		<groupHeader>
+			<band height="21">
+				<textField>
+					<reportElement x="0" y="1" width="154" height="20"/>
+					<textElement>
+						<font size="14" isBold="true"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{Curso}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="47" splitType="Stretch">
+			<staticText>
+				<reportElement x="140" y="0" width="263" height="47"/>
+				<textElement textAlignment="Center">
+					<font size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[INFORMACIÓN DE GRUPOS FAMILIARES POR CURSO]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="162" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="161" width="555" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement x="33" y="27" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{alu_ape1}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="133" y="27" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{alu_ape2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="233" y="27" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{alu_nom1}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="333" y="27" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{alu_nom2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="455" y="0" width="100" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isItalic="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{Grupo_Familiar}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="33" y="72" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{padre_ape1}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="133" y="72" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{padre_ape2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="233" y="72" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{nomb_nom1}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="333" y="72" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{nomb_nom2}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="333" y="47" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{telef}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="233" y="47" width="100" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Telefono Domicilio]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="233" y="92" width="100" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Numero celular]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="333" y="92" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{celular_padre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="33" y="117" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{madre_ape1}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="133" y="117" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{madre_ape2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="233" y="117" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{madre_nom1}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="333" y="117" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{madre_nom2}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="233" y="137" width="100" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Numero celular]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="333" y="137" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{celular_madre}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="400" y="0" width="55" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Familia]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="455" y="117" width="100" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{Tipo_Persona_Tipo_Persona}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="455" y="27" width="100" height="20"/>
+				<textElement>
+					<font isBold="true" isItalic="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{Tipo_Persona_A_Tipo_Persona}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="455" y="72" width="100" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{Tipo_Persona_B_Tipo_Persona}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="5"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement style="Column header" x="433" y="0" width="80" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Pagina "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement style="Column header" x="513" y="0" width="40" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement style="Column header" x="0" y="0" width="100" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.util.Date"><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="100" y="0" width="333" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[©Derechos Reservados de Reproducción del Colegio Rochester]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

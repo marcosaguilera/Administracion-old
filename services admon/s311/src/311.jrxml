@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="311" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<queryString>
+		<![CDATA[SELECT
+     PERSONA.`Codigo` AS PERSONA_Codigo,
+     PERSONA.`Apellido1` AS PERSONA_Apellido1,
+     PERSONA.`Apellido2` AS PERSONA_Apellido2,
+     PERSONA.`Nombre1` AS PERSONA_Nombre1,
+     PERSONA.`Nombre2` AS PERSONA_Nombre2,
+     PERSONA.`Activo_Retirado` AS PERSONA_Activo_Retirado
+FROM
+     `PERSONA` PERSONA
+WHERE
+	PERSONA.`Activo_Retirado`=0]]>
+	</queryString>
+	<field name="PERSONA_Codigo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="PERSONA_Apellido1" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="PERSONA_Apellido2" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="PERSONA_Nombre1" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="PERSONA_Nombre2" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="PERSONA_Activo_Retirado" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="96" splitType="Stretch">
+			<image>
+				<reportElement x="403" y="2" width="152" height="68"/>
+				<imageExpression class="java.lang.String"><![CDATA["logo.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="88" y="2" width="315" height="68"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ALUMNOS RETIRADOS]]></text>
+			</staticText>
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="403" y="70" width="152" height="15"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression class="java.util.Date"><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="24" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="1" width="49" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Codigo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="49" y="1" width="294" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nombres y Apellidos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="343" y="1" width="212" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Comentario y razon de retiro]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="61" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="49" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{PERSONA_Codigo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="49" y="0" width="294" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{PERSONA_Apellido1}+" "+$F{PERSONA_Apellido2}+" "+$F{PERSONA_Nombre1}+" "+$F{PERSONA_Nombre2}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="58" width="555" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="24" splitType="Stretch">
+			<textField>
+				<reportElement x="527" y="2" width="25" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$V{COLUMN_COUNT}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="391" y="2" width="136" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total alumnos retirados:]]></text>
+			</staticText>
+		</band>
+	</columnFooter>
+</jasperReport>

@@ -1,0 +1,21 @@
+{
+	"methods": [{
+		"name": "getReport",
+		"parameters": [{
+			"name": "idp",
+			"type": "java.lang.String"
+		}, {
+			"name": "idy",
+			"type": "java.lang.String"
+		}, {
+			"name": "fecha1",
+			"type": "java.lang.String"
+		}, {
+			"name": "fecha2",
+			"type": "java.lang.String"
+		}],
+		"returnType": "com.wavemaker.runtime.server.DownloadResponse"
+	}],
+	"serviceType": "JSON-RPC",
+	"serviceURL": "cparcial_rector.json"
+}

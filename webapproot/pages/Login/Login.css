@@ -1,0 +1,18 @@
+.Login .Login-loginErrorMsg {
+  font-size: 12px; color: red
+}
+
+.Login .Login-test{
+   background: red;
+}
+
+
+.Login .Login-loginButton{
+  background-color: #CD0000;
+  background-image: -moz-linear-gradient(center top , #CD0000, #CD0000);
+  color: #FFFFFF;
+  text-shadow: 0 1px rgba(0, 0, 0, 0.1);
+  
+  
+}
+

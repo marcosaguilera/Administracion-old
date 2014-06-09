@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Certificado" pageWidth="612" pageHeight="792" columnWidth="535" leftMargin="47" rightMargin="30" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="ireport.scriptlethandling" value="0"/>
+	<property name="ireport.encoding" value="UTF-8"/>
+	<import value="net.sf.jasperreports.engine.*"/>
+	<import value="java.util.*"/>
+	<import value="net.sf.jasperreports.engine.data.*"/>
+	<parameter name="IdSy" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="codpersona" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT P.Id_Persona AS ALUMNO, P.NOMBRE1, REPLACE(P.Nombre2, '-','') Nombre2, P.APELLIDO1, P.Apellido2, G.Grade, C.Curso
+     , A.Id_Area, A.Area_name, ASI.Id_Asignatura, ASI.Subject, IA.Calificacion AS CAL_ASIGNATURA
+     , PER.periodo, ASI.intensidad_horaria AS INTENSIDAD, IA.CALIF_CHAR
+     , ih_area (P.ID_PERSONA, A.ID_AREA, ASI.Grado_Id_Grado, ASI.SY_Id_SY) AS SUMINTENSIDAD
+     , replace(calcula_calif_area_char_en(P.ID_PERSONA, A.ID_AREA, $P{IdSy}),'BASICO','BÁSICO')AS CALIF_AREA_CHAR
+     , (calcula_calif_area_num(P.ID_PERSONA, A.ID_AREA, $P{IdSy})*1000/1000) AS CALIF_AREA_NUM, ASI.ih_a1, ASI.ih_a2, ASI.ih_a3, ASI.Id_Area1, ASI.Id_Area2,ASI.Id_Area3, A.Area
+     , ih_area_total(P.ID_PERSONA, ASI.Grado_Id_Grado, ASI.SY_Id_SY) AS INTENSIDADTOTAL
+   FROM PERSONA P,
+        ASIGNATURA ASI,
+        INSC_ALUM_ASIG I,
+        PERIODO PER,
+        GRADO G,
+        CURSO C,
+        Insc_Alum_Curso IA,
+        AREA A,
+        SY
+  WHERE P.ID_PERSONA = I.PERSONA_ID_PERSONA
+          AND ASI.Id_Asignatura = I.ASIGNATURA_ID_ASIGNATURA
+	AND I.Periodo_Id_Periodo = PER.Id_Periodo
+	AND ASI.Grado_Id_Grado = G.Id_Grado
+	AND IA.Persona_Id_Persona = P.Id_Persona
+	AND IA.Curso_Id_Curso = C.Id_Curso
+	AND IA.SY_Id_SY = ASI.SY_Id_SY
+             AND (  ASI.Id_Area1 = A.Id_Area
+   	   OR ASI.Id_Area2 = A.Id_Area
+	   OR ASI.Id_Area3 = A.Id_Area)
+          AND I.CALIFICACION IS NOT NULL
+	AND ASI.SY_Id_SY = SY.Id_SY
+	AND P.Id_Persona = $P{codpersona}
+	AND SY.Id_SY = $P{IdSy}
+ORDER BY P.APELLIDO1, P.Apellido2, P.NOMBRE1, P.Nombre2, G.Grado, C.Curso
+       , A.Area, ASI.Asignatura]]>
+	</queryString>
+	<field name="ALUMNO" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="NOMBRE1" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Nombre2" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="APELLIDO1" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Apellido2" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Grade" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Curso" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Id_Area" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Area_name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Id_Asignatura" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Subject" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="CAL_ASIGNATURA" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="periodo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="INTENSIDAD" class="java.lang.Float">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="CALIF_CHAR" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="SUMINTENSIDAD" class="java.lang.Float">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="CALIF_AREA_CHAR" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="CALIF_AREA_NUM" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ih_a1" class="java.lang.Float">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ih_a2" class="java.lang.Float">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ih_a3" class="java.lang.Float">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Id_Area1" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Id_Area2" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Id_Area3" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Area" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="INTENSIDADTOTAL" class="java.lang.Float">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<variable name="V_INTENSIDAD" class="java.lang.Float" resetType="Group" resetGroup="Area" calculation="Sum">
+		<variableExpression><![CDATA[$F{INTENSIDAD}]]></variableExpression>
+	</variable>
+	<variable name="V_APROBO" class="java.lang.Integer" resetType="Group" resetGroup="Alumno" calculation="Sum">
+		<variableExpression><![CDATA[$F{CALIF_CHAR}!=null?($F{CALIF_CHAR}.equals("Bajo")?(new Integer(1)):(new Integer(0))):($V{V_APROBO})]]></variableExpression>
+	</variable>
+	<variable name="V_PROMOVIDO" class="java.lang.String" resetType="Group" resetGroup="Alumno">
+		<variableExpression><![CDATA[$V{V_APROBO}.equals(new Integer(0))?"THE STUDENT WAS PROMOTED TO THE NEXT GRADE":"THE STUDENT WASN'T PROMOTED TO THE NEXT GRADE"]]></variableExpression>
+	</variable>
+	<variable name="date" class="java.util.Date" calculation="System"/>
+	<group name="Alumno" isStartNewPage="true" isResetPageNumber="true">
+		<groupExpression><![CDATA[$F{ALUMNO}]]></groupExpression>
+		<groupHeader>
+			<band height="130" splitType="Stretch">
+				<staticText>
+					<reportElement key="staticText-4" x="41" y="111" width="212" height="19"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="SansSerif" isBold="true" pdfFontName="Helvetica"/>
+					</textElement>
+					<text><![CDATA[ÁREAS / SUBJECTS]]></text>
+				</staticText>
+				<staticText>
+					<reportElement key="staticText-5" x="341" y="111" width="105" height="19"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="SansSerif" isBold="true" pdfFontName="Helvetica"/>
+					</textElement>
+					<text><![CDATA[GRADES]]></text>
+				</staticText>
+				<staticText>
+					<reportElement key="staticText-6" x="269" y="111" width="59" height="19"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="SansSerif" isBold="true" pdfFontName="Helvetica"/>
+					</textElement>
+					<text><![CDATA[H p W]]></text>
+				</staticText>
+				<textField isBlankWhenNull="false">
+					<reportElement key="textField-4" x="1" y="79" width="534" height="32"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font isBold="false" pdfFontName="Helvetica"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA["That "+$F{APELLIDO1}+" "+($F{Apellido2}!= null?" "+$F{Apellido2}:"")+" "+$F{NOMBRE1}+" "+($F{Nombre2} != null?" "+$F{Nombre2}:"")+", was enrolled in this School as a full time student in grade "+$F{Grade}+" for the school year "+$F{periodo}+" calendar B, and obtain the following grades: "]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="88" y="5" width="371" height="49"/>
+					<textElement textAlignment="Justified">
+						<font fontName="SansSerif" size="10"/>
+					</textElement>
+					<text><![CDATA[The principal and the Academic Secretary of Rochester School in Bogotá, Colombia, with Registration Nº 543 at the Secretary of Education of Bogotá, and accredited by the Colombian Ministery of Education by Resolution Nº 3036 of July 5, 1994, hereby certify:]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="262" splitType="Stretch">
+				<staticText>
+					<reportElement key="staticText-13" x="41" y="235" width="154" height="16"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="SansSerif" isBold="true" pdfFontName="Helvetica"/>
+					</textElement>
+					<text><![CDATA[JUAN PABLO ALJURE LEÓN]]></text>
+				</staticText>
+				<staticText>
+					<reportElement key="staticText-12" x="341" y="251" width="151" height="11"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="SansSerif" size="8" isBold="false" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<text><![CDATA[Academic Secretary]]></text>
+				</staticText>
+				<staticText>
+					<reportElement key="staticText-14" x="339" y="235" width="154" height="16"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="SansSerif" isBold="true" pdfFontName="Helvetica"/>
+					</textElement>
+					<text><![CDATA[ROBERTO HERNÁNDEZ SILVA]]></text>
+				</staticText>
+				<staticText>
+					<reportElement key="staticText-11" x="91" y="251" width="54" height="11"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="SansSerif" size="8" isBold="false" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<text><![CDATA[Principal]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="9" y="2" width="319" height="15"/>
+					<textElement>
+						<font size="10" isBold="true"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$V{V_PROMOVIDO}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement key="staticText-4" x="9" y="72" width="527" height="19"/>
+					<textElement verticalAlignment="Top">
+						<font fontName="SansSerif" size="10" isBold="false" pdfFontName="Helvetica"/>
+					</textElement>
+					<text><![CDATA[The evaluation system in Colombia includes 4 concetps: SUPERIOR, HIGH, BASIC and LOW.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement key="staticText-4" x="25" y="91" width="511" height="25"/>
+					<textElement verticalAlignment="Top">
+						<font fontName="SansSerif" size="10" isBold="false" isItalic="true" pdfFontName="Helvetica"/>
+					</textElement>
+					<text><![CDATA[According to the educational project of Colegio Rochester, the final grades in this certificate have the following meaning:
+]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="25" y="120" width="25" height="12"/>
+					<textElement>
+						<font isBold="true" isItalic="true"/>
+					</textElement>
+					<text><![CDATA[Low]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="25" y="132" width="33" height="12"/>
+					<textElement>
+						<font isBold="true" isItalic="true"/>
+					</textElement>
+					<text><![CDATA[Basic]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="50" y="120" width="486" height="12"/>
+					<textElement>
+						<font isItalic="true"/>
+					</textElement>
+					<text><![CDATA[: The student has learning expectations in Progress and hasn't reached the Competent level.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="58" y="132" width="478" height="12"/>
+					<textElement>
+						<font isItalic="true"/>
+					</textElement>
+					<text><![CDATA[: The student reached a totally Competent level and has no learning expectations in Progress]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="25" y="144" width="25" height="12"/>
+					<textElement>
+						<font isBold="true" isItalic="true"/>
+					</textElement>
+					<text><![CDATA[High]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="50" y="144" width="486" height="12"/>
+					<textElement>
+						<font isItalic="true"/>
+					</textElement>
+					<text><![CDATA[: The student demostrated an Advanced level, over the totally Competent level.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="25" y="156" width="46" height="12"/>
+					<textElement>
+						<font isBold="true" isItalic="true"/>
+					</textElement>
+					<text><![CDATA[Superior]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="71" y="156" width="465" height="12"/>
+					<textElement>
+						<font isItalic="true"/>
+					</textElement>
+					<text><![CDATA[: The student achieved a Master level, over the Advanced and totally Competent levels.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement key="staticText-4" x="9" y="173" width="41" height="19"/>
+					<textElement textAlignment="Justified" verticalAlignment="Middle">
+						<font fontName="SansSerif" isBold="false" pdfFontName="Helvetica"/>
+					</textElement>
+					<text><![CDATA[Bogotá,]]></text>
+				</staticText>
+				<textField pattern="MMMMM dd, yyyy">
+					<reportElement x="50" y="173" width="100" height="19"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10"/>
+					</textElement>
+					<textFieldExpression class="java.util.Date"><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement key="staticText-4" x="9" y="19" width="527" height="50"/>
+					<textElement textAlignment="Justified" verticalAlignment="Top">
+						<font fontName="SansSerif" size="10" isBold="false" pdfFontName="Helvetica"/>
+					</textElement>
+					<text><![CDATA[The educational system in Colombia involves 14 years of studies starting with Prekindergarten, Kindergarten, Transition (1st in USA), and grades 1st through 11th (2nd - 12th in U.S nomenclature). Students receive their High School Diploma after finishing 11th grade (12th Grade in U.S nomenclature) and developing a graduation project.]]></text>
+				</staticText>
+			</band>
+		</groupFooter>
+	</group>
+	<group name="Area">
+		<groupExpression><![CDATA[$F{Id_Area}]]></groupExpression>
+		<groupHeader>
+			<band height="13" splitType="Stretch">
+				<textField isBlankWhenNull="false">
+					<reportElement key="textField" x="41" y="1" width="212" height="12"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="SansSerif" size="8" isBold="true" pdfFontName="Helvetica"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{Area_name}]]></textFieldExpression>
+				</textField>
+				<textField pattern="###0.00" isBlankWhenNull="false">
+					<reportElement key="textField" x="269" y="1" width="59" height="12"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="SansSerif" size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression class="java.lang.Float"><![CDATA[$F{SUMINTENSIDAD}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="false">
+					<reportElement key="textField" x="341" y="1" width="105" height="12"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="8" isBold="true" pdfFontName="Helvetica"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{CALIF_AREA_CHAR}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band splitType="Stretch"/>
+		</groupFooter>
+	</group>
+	<group name="Asignatura">
+		<groupExpression><![CDATA[$F{Id_Asignatura}]]></groupExpression>
+		<groupHeader>
+			<band height="8" splitType="Stretch">
+				<textField isBlankWhenNull="false">
+					<reportElement key="textField-2" x="51" y="0" width="202" height="8"/>
+					<textElement verticalAlignment="Top">
+						<font fontName="SansSerif" size="6" isBold="false" isItalic="true" pdfFontName="Helvetica"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{Subject}]]></textFieldExpression>
+				</textField>
+				<textField pattern="##0.0" isBlankWhenNull="true">
+					<reportElement key="textField" x="269" y="0" width="59" height="8" forecolor="#FFFFFF"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="SansSerif" size="8"/>
+					</textElement>
+					<textFieldExpression class="java.lang.Float"><![CDATA[$F{INTENSIDAD}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement key="textField" x="333" y="0" width="140" height="8" forecolor="#FFFFFF"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="8" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{CALIF_CHAR}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band splitType="Stretch"/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

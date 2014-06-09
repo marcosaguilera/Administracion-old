@@ -1,0 +1,1314 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<service xmlns="http://www.activegrid.com/namespaces/ServiceDefinitions/1.0" springFile="aprendoz_desarrollo.spring.xml" type="DataService" CRUDService="true" class="com.aprendoz_desarrollo.Aprendoz_desarrollo" id="aprendoz_desarrollo">
+    <operation name="getTipoPersonaById">
+        <parameter isList="false" typeRef="java.lang.Integer" name="id"/>
+        <return isList="false" typeRef="com.aprendoz_desarrollo.data.TipoPersona"/>
+    </operation>
+    <dataobjects>
+        <dataobject supportsQuickData="true" javaType="com.aprendoz_desarrollo.data.Actividad">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="idActividad">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="actividad"/>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="fecha"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Boolean" name="requeridoAlternativo"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="idSyIdIdSy"/>
+            <element allowNull="false" isList="false" typeRef="com.aprendoz_desarrollo.data.Subtopico" name="subtopico"/>
+            <element allowNull="true" isList="false" typeRef="com.aprendoz_desarrollo.data.TipoValoracion" name="tipoValoracion"/>
+            <element allowNull="true" isList="false" typeRef="com.aprendoz_desarrollo.data.TipoDesempeno" name="tipoDesempeno"/>
+            <element allowNull="true" isList="false" typeRef="com.aprendoz_desarrollo.data.TipoActividad" name="tipoActividad"/>
+            <element allowNull="true" isList="true" typeRef="com.aprendoz_desarrollo.data.InscAlumActividad" name="inscAlumActividads"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.aprendoz_desarrollo.data.Anuncio">
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="anuncio">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <require>insert</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+            </element>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.aprendoz_desarrollo.data.AprEsperados">
+            <element allowNull="false" isList="false" typeRef="com.aprendoz_desarrollo.data.AprEsperadosId" name="id">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <require>insert</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+            </element>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.aprendoz_desarrollo.data.AprLogrados">
+            <element allowNull="false" isList="false" typeRef="com.aprendoz_desarrollo.data.AprLogradosId" name="id">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <require>insert</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+            </element>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.aprendoz_desarrollo.data.Aprendizaje">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="idAprendizaje">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="false" isList="false" typeRef="java.util.Date" name="fechaEsperada"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="aprendizaje"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="learning"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="peso"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="ejeIdEje"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="eje2IdEje"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="eje3IdEje"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="idSyIdIdSy"/>
+            <element allowNull="false" isList="false" typeRef="com.aprendoz_desarrollo.data.Inteligencia" name="inteligencia"/>
+            <element allowNull="false" isList="false" typeRef="com.aprendoz_desarrollo.data.DimensionComprension" name="dimensionComprension"/>
+            <element allowNull="false" isList="false" typeRef="com.aprendoz_desarrollo.data.Subtopico" name="subtopico"/>
+            <element allowNull="true" isList="false" typeRef="com.aprendoz_desarrollo.data.NivelEsperado" name="nivelEsperado"/>
+            <element allowNull="false" isList="false" typeRef="com.aprendoz_desarrollo.data.DimensionCurricular" name="dimensionCurricular"/>
+            <element allowNull="true" isList="true" typeRef="com.aprendoz_desarrollo.data.CalificacionFinal" name="calificacionFinals"/>
+            <element allowNull="true" isList="true" typeRef="com.aprendoz_desarrollo.data.InscAlumAprendizaje" name="inscAlumAprendizajes"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.aprendoz_desarrollo.data.Area">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="idArea">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="area"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="areaName"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="intensidadHoraria"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="idSyIdIdSy"/>
+            <element allowNull="true" isList="true" typeRef="com.aprendoz_desarrollo.data.Subarea" name="subareas"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.aprendoz_desarrollo.data.Asignatura">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="idAsignatura">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <require>insert</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+            </element>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="asignatura"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="subject"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Boolean" name="electiva"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="idArea1"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="idArea2"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="idArea3"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="idSubarea1"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="idSubarea2"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="idSubarea3"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="salonIdSalon"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Float" name="intensidadHoraria"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="peso"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="descripAsigEspaniol"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="descripAsigIngles"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.Float" name="ihA1"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.Float" name="ihA2"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.Float" name="ihA3"/>
+            <element allowNull="false" isList="false" typeRef="com.aprendoz_desarrollo.data.Grado" name="grado"/>
+            <element allowNull="false" isList="false" typeRef="com.aprendoz_desarrollo.data.TipoInscAsig" name="tipoInscAsig"/>
+            <element allowNull="false" isList="false" typeRef="com.aprendoz_desarrollo.data.Sy" name="sy"/>
+            <element allowNull="true" isList="true" typeRef="com.aprendoz_desarrollo.data.Unidad" name="unidads"/>
+            <element allowNull="true" isList="true" typeRef="com.aprendoz_desarrollo.data.InscCursoAsig" name="inscCursoAsigs"/>
+            <element allowNull="true" isList="true" typeRef="com.aprendoz_desarrollo.data.InscDocAsig" name="inscDocAsigs"/>
+            <element allowNull="true" isList="true" typeRef="com.aprendoz_desarrollo.data.InscAlumAsig" name="inscAlumAsigs"/>
+            <element allowNull="true" isList="true" typeRef="com.aprendoz_desarrollo.data.Sesion" name="sesions"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.aprendoz_desarrollo.data.Asistencia">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="idAsistencia">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="tipoEventualidadIdTipoEventualidad"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="tipoEventualidadIdTipoEventualidad1"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="tipoEventualidadIdTipoEventualidad2"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="comentario"/>
+            <element allowNull="false" isList="false" typeRef="com.aprendoz_desarrollo.data.Sesion" name="sesion"/>
+            <element allowNull="false" isList="false" typeRef="com.aprendoz_desarrollo.data.TipoAsistencia" name="tipoAsistencia"/>
+            <element allowNull="false" isList="false" typeRef="com.aprendoz_desarrollo.data.Persona" name="persona"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.aprendoz_desarrollo.data.CalifEst">
+            <element allowNull="false" isList="false" typeRef="com.aprendoz_desarrollo.data.CalifEstId" name="id">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <require>insert</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+            </element>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.aprendoz_desarrollo.data.CalificacionFinal">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="idCalificacionFinal">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="true" isList="false" typeRef="java.lang.Float" name="calificacionNum"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="calificacion"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="idSyIdIdSy"/>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="fechaLogro"/>
+            <element allowNull="true" isList="false" typeRef="com.aprendoz_desarrollo.data.Persona" name="persona"/>
+            <element allowNull="true" isList="false" typeRef="com.aprendoz_desarrollo.data.Aprendizaje" name="aprendizaje"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.aprendoz_desarrollo.data.Calificaciones">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="idCalificaciones">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="calificacion"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="calificacionNum"/>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="fechaLogro"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="comentario"/>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="fechaIngreso"/>
+            <element allowNull="false" isList="false" typeRef="com.aprendoz_desarrollo.data.InscAlumAprendizaje" name="inscAlumAprendizaje"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.aprendoz_desarrollo.data.Curso">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="idCurso">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <require>insert</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+            </element>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="curso"/>
+            <element allowNull="true" isList="false" typeRef="com.aprendoz_desarrollo.data.Grado" name="grado"/>
+            <element allowNull="true" isList="true" typeRef="com.aprendoz_desarrollo.data.InscCursoAsig" name="inscCursoAsigs"/>
+            <element allowNull="true" isList="true" typeRef="com.aprendoz_desarrollo.data.InscAlumCurso" name="inscAlumCursos"/>
+            <element allowNull="true" isList="true" typeRef="com.aprendoz_desarrollo.data.Sesion" name="sesions"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.aprendoz_desarrollo.data.DimensionComprension">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="idDimension">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <require>insert</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+            </element>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="dimensionComprension"/>
+            <element allowNull="true" isList="true" typeRef="com.aprendoz_desarrollo.data.Aprendizaje" name="aprendizajes"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.aprendoz_desarrollo.data.DimensionCurricular">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="idDimension">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <require>insert</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+            </element>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="dimensionCurricular"/>
+            <element allowNull="true" isList="true" typeRef="com.aprendoz_desarrollo.data.Aprendizaje" name="aprendizajes"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.aprendoz_desarrollo.data.Eje">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="idEje">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <require>insert</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+            </element>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="ejeTematico"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="axis"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Boolean" name="activo"/>
+            <element allowNull="true" isList="false" typeRef="com.aprendoz_desarrollo.data.Subarea" name="subarea"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.aprendoz_desarrollo.data.EstadoDepartamento">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="idEstados">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="estado"/>
+            <element allowNull="false" isList="false" typeRef="com.aprendoz_desarrollo.data.Pais" name="pais"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.aprendoz_desarrollo.data.EventualidadPersonas">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="idEventualidadPersonas">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="false" isList="false" typeRef="com.aprendoz_desarrollo.data.Eventualidades" name="eventualidades"/>
+            <element allowNull="false" isList="false" typeRef="com.aprendoz_desarrollo.data.Persona" name="persona"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.aprendoz_desarrollo.data.Eventualidades">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="idEventualidad">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="fecha"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="lugar"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="estado"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="descripcion"/>
+            <element allowNull="false" isList="false" typeRef="com.aprendoz_desarrollo.data.Persona" name="persona"/>
+            <element allowNull="false" isList="false" typeRef="com.aprendoz_desarrollo.data.SubtipoEventualidad" name="subtipoEventualidad"/>
+            <element allowNull="true" isList="true" typeRef="com.aprendoz_desarrollo.data.EventualidadPersonas" name="eventualidadPersonases"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.aprendoz_desarrollo.data.Foto">
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="codigo">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <require>insert</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+            </element>
+            <element allowNull="true" isList="true" typeRef="byte" name="foto"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.aprendoz_desarrollo.data.Grado">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="idGrado">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <require>insert</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+            </element>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="grado"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="grade"/>
+            <element allowNull="true" isList="false" typeRef="com.aprendoz_desarrollo.data.Nivel" name="nivel"/>
+            <element allowNull="true" isList="true" typeRef="com.aprendoz_desarrollo.data.Asignatura" name="asignaturas"/>
+            <element allowNull="true" isList="true" typeRef="com.aprendoz_desarrollo.data.Curso" name="cursos"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.aprendoz_desarrollo.data.GrupoFamiliar">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="idGrupoFamiliar">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="grupoFamiliar"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="grupoLdap"/>
+            <element allowNull="true" isList="true" typeRef="com.aprendoz_desarrollo.data.Persona" name="personas"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.aprendoz_desarrollo.data.HistorialCalificaciones">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="idHistorialCalificaciones">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="calificacion"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="calificacionNum"/>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="fechaLogro"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="comentario"/>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="fechaIngreso"/>
+            <element allowNull="false" isList="false" typeRef="com.aprendoz_desarrollo.data.InscAlumAprendizaje" name="inscAlumAprendizaje"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.aprendoz_desarrollo.data.InscAlumActividad">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="idInscAlumActividad">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="true" isList="false" typeRef="java.lang.Boolean" name="logrado"/>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="fecha"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="comentario"/>
+            <element allowNull="false" isList="false" typeRef="com.aprendoz_desarrollo.data.Actividad" name="actividad"/>
+            <element allowNull="false" isList="false" typeRef="com.aprendoz_desarrollo.data.Persona" name="persona"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.aprendoz_desarrollo.data.InscAlumAprendizaje">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="idInscAlumAprendizaje">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="fechaLogro"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="calificacion"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Float" name="calificacionNum"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="comentario"/>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="fechaIngreso"/>
+            <element allowNull="false" isList="false" typeRef="com.aprendoz_desarrollo.data.Persona" name="persona"/>
+            <element allowNull="false" isList="false" typeRef="com.aprendoz_desarrollo.data.Aprendizaje" name="aprendizaje"/>
+            <element allowNull="true" isList="true" typeRef="com.aprendoz_desarrollo.data.Calificaciones" name="calificacioneses"/>
+            <element allowNull="true" isList="true" typeRef="com.aprendoz_desarrollo.data.HistorialCalificaciones" name="historialCalificacioneses"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.aprendoz_desarrollo.data.InscAlumAsig">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="idInscAlumAsig">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="true" isList="false" typeRef="java.math.BigDecimal" name="calificacion"/>
+            <element allowNull="true" isList="false" typeRef="java.math.BigDecimal" name="porcentaje"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="esperados"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="logrados"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="califChar"/>
+            <element allowNull="false" isList="false" typeRef="com.aprendoz_desarrollo.data.Asignatura" name="asignatura"/>
+            <element allowNull="false" isList="false" typeRef="com.aprendoz_desarrollo.data.Persona" name="persona"/>
+            <element allowNull="false" isList="false" typeRef="com.aprendoz_desarrollo.data.Periodo" name="periodo"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.aprendoz_desarrollo.data.InscAlumAsigCurso">
+            <element allowNull="false" isList="false" typeRef="com.aprendoz_desarrollo.data.InscAlumAsigCursoId" name="id">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <require>insert</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+            </element>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.aprendoz_desarrollo.data.InscAlumCurso">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="idInscAlumCurso">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="calificacion"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="califChar"/>
+            <element allowNull="false" isList="false" typeRef="java.util.Date" name="fechaMatricula"/>
+            <element allowNull="false" isList="false" typeRef="com.aprendoz_desarrollo.data.Curso" name="curso"/>
+            <element allowNull="false" isList="false" typeRef="com.aprendoz_desarrollo.data.Sy" name="sy"/>
+            <element allowNull="false" isList="false" typeRef="com.aprendoz_desarrollo.data.Persona" name="persona"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.aprendoz_desarrollo.data.InscCursoAsig">
+            <element allowNull="false" isList="false" typeRef="java.lang.Long" name="idInscCursoAsig">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="false" isList="false" typeRef="com.aprendoz_desarrollo.data.Curso" name="curso"/>
+            <element allowNull="false" isList="false" typeRef="com.aprendoz_desarrollo.data.Asignatura" name="asignatura"/>
+            <element allowNull="false" isList="false" typeRef="com.aprendoz_desarrollo.data.Persona" name="persona"/>
+            <element allowNull="false" isList="false" typeRef="com.aprendoz_desarrollo.data.Periodo" name="periodo"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.aprendoz_desarrollo.data.InscDocAsig">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="idInscDocAsig">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="false" isList="false" typeRef="java.util.Date" name="fechaCreacion"/>
+            <element allowNull="false" isList="false" typeRef="com.aprendoz_desarrollo.data.Asignatura" name="asignatura"/>
+            <element allowNull="false" isList="false" typeRef="com.aprendoz_desarrollo.data.Sy" name="sy"/>
+            <element allowNull="false" isList="false" typeRef="com.aprendoz_desarrollo.data.Persona" name="persona"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.aprendoz_desarrollo.data.Inteligencia">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="idInteligencia">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <require>insert</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+            </element>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="inteligencia"/>
+            <element allowNull="true" isList="true" typeRef="com.aprendoz_desarrollo.data.Aprendizaje" name="aprendizajes"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.aprendoz_desarrollo.data.LogEventos">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="idLog">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="evento"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="origenEvento"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="dato1"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="dato2"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="dato3"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="dato4"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="dato5"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="dato6"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="dato7"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="dato8"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="dato9"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="dato10"/>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="fechaDelRegistro"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="tipoPersonaSoloPersona"/>
+            <element allowNull="false" isList="false" typeRef="java.util.Date" name="fechaEvento"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.aprendoz_desarrollo.data.Nivel">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="idNivel">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <require>insert</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+            </element>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="nivel"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="levelName"/>
+            <element allowNull="true" isList="true" typeRef="com.aprendoz_desarrollo.data.Grado" name="grados"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.aprendoz_desarrollo.data.NivelEsperado">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="idNivelEsperado">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <require>insert</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+            </element>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="nivelEsperado"/>
+            <element allowNull="true" isList="true" typeRef="com.aprendoz_desarrollo.data.Aprendizaje" name="aprendizajes"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.aprendoz_desarrollo.data.OtrasMetas">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="idOtraMeta">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="meta"/>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="fecha"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Boolean" name="logrado"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="idSyIdIdSy"/>
+            <element allowNull="false" isList="false" typeRef="com.aprendoz_desarrollo.data.Subtopico" name="subtopico"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.aprendoz_desarrollo.data.Pais">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="idPais">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <require>insert</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+            </element>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="pais"/>
+            <element allowNull="true" isList="true" typeRef="com.aprendoz_desarrollo.data.EstadoDepartamento" name="estadoDepartamentos"/>
+            <element allowNull="true" isList="true" typeRef="com.aprendoz_desarrollo.data.Persona" name="personas"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.aprendoz_desarrollo.data.Periodo">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="idPeriodo">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <require>insert</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+            </element>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="periodo"/>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="fechaInicio"/>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="fechaFin"/>
+            <element allowNull="false" isList="false" typeRef="com.aprendoz_desarrollo.data.TipoPeriodo" name="tipoPeriodo"/>
+            <element allowNull="false" isList="false" typeRef="com.aprendoz_desarrollo.data.Sy" name="sy"/>
+            <element allowNull="true" isList="true" typeRef="com.aprendoz_desarrollo.data.InscCursoAsig" name="inscCursoAsigs"/>
+            <element allowNull="true" isList="true" typeRef="com.aprendoz_desarrollo.data.InscAlumAsig" name="inscAlumAsigs"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.aprendoz_desarrollo.data.Persona">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="idPersona">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="nombreLdap"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="clave"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="codigo"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="email"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Boolean" name="activoRetirado"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="apellido1"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="apellido2"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="nombre1"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="nombre2"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="nivelAcademico"/>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="fechaNacimiento"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="lugarNacimientoMunicipio"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="lugarNacimientoDepartamento"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="nacionalidad"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="direccionResidencia"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="telefono"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="telefono2"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="religion"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="tipoDocumento"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="noDocumento"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="lugarExpedicionMunicipio"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="lugarExpedicionDepartamento"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="barrio"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="municipio"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="departamento"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="saludPrepagada"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="eps"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="numeroContratoSalud"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="clinicaEmergencia"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="viveCon"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="tipoSangre"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="sexo"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="codigoFamilia"/>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="fechaIngreso"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="gradoIngreso"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="cursoIngreso"/>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="fechaRetiro"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="colegioAnterior"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Boolean" name="hijoDeExalumno"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="nombrePadreExalumno"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="promocion"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="profesion"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="empresa"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="cargo"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="celular"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="direccionOficina"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="telefonoOficina"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="parentesco"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="rutaM"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="rutaT"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Boolean" name="tomaAlmuerzo"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Boolean" name="tomaMediasNueves"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Boolean" name="tomaSeguroAccidentes"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="noPlaqueta"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Boolean" name="matriculado"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="inscAlumCursoIdInscAlumCurso"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="paisDomicilio"/>
+            <element allowNull="false" isList="false" typeRef="com.aprendoz_desarrollo.data.Pais" name="pais"/>
+            <element allowNull="false" isList="false" typeRef="com.aprendoz_desarrollo.data.TipoPersona" name="tipoPersona"/>
+            <element allowNull="false" isList="false" typeRef="com.aprendoz_desarrollo.data.GrupoFamiliar" name="grupoFamiliar"/>
+            <element allowNull="true" isList="true" typeRef="com.aprendoz_desarrollo.data.InscAlumAprendizaje" name="inscAlumAprendizajes"/>
+            <element allowNull="true" isList="true" typeRef="com.aprendoz_desarrollo.data.CalificacionFinal" name="calificacionFinals"/>
+            <element allowNull="true" isList="true" typeRef="com.aprendoz_desarrollo.data.EventualidadPersonas" name="eventualidadPersonases"/>
+            <element allowNull="true" isList="true" typeRef="com.aprendoz_desarrollo.data.InscDocAsig" name="inscDocAsigs"/>
+            <element allowNull="true" isList="true" typeRef="com.aprendoz_desarrollo.data.InscCursoAsig" name="inscCursoAsigs"/>
+            <element allowNull="true" isList="true" typeRef="com.aprendoz_desarrollo.data.InscAlumCurso" name="inscAlumCursos"/>
+            <element allowNull="true" isList="true" typeRef="com.aprendoz_desarrollo.data.Asistencia" name="asistencias"/>
+            <element allowNull="true" isList="true" typeRef="com.aprendoz_desarrollo.data.InscAlumActividad" name="inscAlumActividads"/>
+            <element allowNull="true" isList="true" typeRef="com.aprendoz_desarrollo.data.InscAlumAsig" name="inscAlumAsigs"/>
+            <element allowNull="true" isList="true" typeRef="com.aprendoz_desarrollo.data.Eventualidades" name="eventualidadeses"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.aprendoz_desarrollo.data.Promocion">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="idPromocion">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="personaIdPersona"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="syIdSy"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.Boolean" name="checkacademico"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.Boolean" name="checkcomite"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="commentcomite"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.Boolean" name="checkfinanc"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="commentfinanc"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.Boolean" name="promovido"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="commentaprobado"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="commentpromovido"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Float" name="calificacion"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="calificacionChar"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.aprendoz_desarrollo.data.Recurso">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="idRecurso">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="recurso"/>
+            <element allowNull="true" isList="true" typeRef="byte" name="documento"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="ubicacion"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="idSyIdIdSy"/>
+            <element allowNull="false" isList="false" typeRef="com.aprendoz_desarrollo.data.Subtopico" name="subtopico"/>
+            <element allowNull="false" isList="false" typeRef="com.aprendoz_desarrollo.data.TipoRecurso" name="tipoRecurso"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.aprendoz_desarrollo.data.Salon">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="idSalon">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <require>insert</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+            </element>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="numeroSalon"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.aprendoz_desarrollo.data.Sesion">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="idSesion">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="fecha"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="numeroSesion"/>
+            <element allowNull="false" isList="false" typeRef="com.aprendoz_desarrollo.data.Curso" name="curso"/>
+            <element allowNull="false" isList="false" typeRef="com.aprendoz_desarrollo.data.Asignatura" name="asignatura"/>
+            <element allowNull="true" isList="true" typeRef="com.aprendoz_desarrollo.data.Asistencia" name="asistencias"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.aprendoz_desarrollo.data.Subarea">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="idSubarea">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="subarea"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="idSyIdIdSy"/>
+            <element allowNull="true" isList="false" typeRef="com.aprendoz_desarrollo.data.Area" name="area"/>
+            <element allowNull="true" isList="true" typeRef="com.aprendoz_desarrollo.data.Eje" name="ejes"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.aprendoz_desarrollo.data.SubtipoEventualidad">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="idSubtipoEventualidad">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="subtipoEventualidad"/>
+            <element allowNull="false" isList="false" typeRef="com.aprendoz_desarrollo.data.TipoEventualidad" name="tipoEventualidad"/>
+            <element allowNull="true" isList="true" typeRef="com.aprendoz_desarrollo.data.Eventualidades" name="eventualidadeses"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.aprendoz_desarrollo.data.Subtopico">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="idSubtopico">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="subtopico"/>
+            <element allowNull="false" isList="false" typeRef="java.util.Date" name="fechaInicio"/>
+            <element allowNull="false" isList="false" typeRef="java.util.Date" name="fechaFin"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="subtopic"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="numeroSubtopico"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="idSyIdIdSy"/>
+            <element allowNull="false" isList="false" typeRef="com.aprendoz_desarrollo.data.Unidad" name="unidad"/>
+            <element allowNull="true" isList="true" typeRef="com.aprendoz_desarrollo.data.Recurso" name="recursos"/>
+            <element allowNull="true" isList="true" typeRef="com.aprendoz_desarrollo.data.Aprendizaje" name="aprendizajes"/>
+            <element allowNull="true" isList="true" typeRef="com.aprendoz_desarrollo.data.OtrasMetas" name="otrasMetases"/>
+            <element allowNull="true" isList="true" typeRef="com.aprendoz_desarrollo.data.Actividad" name="actividads"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.aprendoz_desarrollo.data.Sy">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="idSy">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <require>insert</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+            </element>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="schoolYear"/>
+            <element allowNull="true" isList="true" typeRef="com.aprendoz_desarrollo.data.Asignatura" name="asignaturas"/>
+            <element allowNull="true" isList="true" typeRef="com.aprendoz_desarrollo.data.InscAlumCurso" name="inscAlumCursos"/>
+            <element allowNull="true" isList="true" typeRef="com.aprendoz_desarrollo.data.InscDocAsig" name="inscDocAsigs"/>
+            <element allowNull="true" isList="true" typeRef="com.aprendoz_desarrollo.data.Periodo" name="periodos"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.aprendoz_desarrollo.data.TipoActividad">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="idTipoActividad">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <require>insert</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+            </element>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="tipoActividad"/>
+            <element allowNull="true" isList="true" typeRef="com.aprendoz_desarrollo.data.Actividad" name="actividads"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.aprendoz_desarrollo.data.TipoAsistencia">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="idTipo">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <require>insert</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+            </element>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="tipo"/>
+            <element allowNull="true" isList="true" typeRef="com.aprendoz_desarrollo.data.Asistencia" name="asistencias"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.aprendoz_desarrollo.data.TipoDesempeno">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="idTipoDesempeno">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <require>insert</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+            </element>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="tipoDesempeno"/>
+            <element allowNull="true" isList="true" typeRef="com.aprendoz_desarrollo.data.Actividad" name="actividads"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.aprendoz_desarrollo.data.TipoEventualidad">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="idTipoEventualidad">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="tipoEventualidad"/>
+            <element allowNull="true" isList="true" typeRef="com.aprendoz_desarrollo.data.SubtipoEventualidad" name="subtipoEventualidads"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.aprendoz_desarrollo.data.TipoInscAsig">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="idTipoInscAsig">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <require>insert</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+            </element>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="tipo"/>
+            <element allowNull="true" isList="true" typeRef="com.aprendoz_desarrollo.data.Asignatura" name="asignaturas"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.aprendoz_desarrollo.data.TipoPeriodo">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="idTipoPeriodo">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <require>insert</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+            </element>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="tipoPeriodo"/>
+            <element allowNull="true" isList="true" typeRef="com.aprendoz_desarrollo.data.Periodo" name="periodos"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.aprendoz_desarrollo.data.TipoPersona">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="idTipoPersona">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <require>insert</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+            </element>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="tipoPersona"/>
+            <element allowNull="true" isList="true" typeRef="com.aprendoz_desarrollo.data.Persona" name="personas"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.aprendoz_desarrollo.data.TipoRecurso">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="idTipoRecurso">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <require>insert</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+            </element>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="tipoRecurso"/>
+            <element allowNull="true" isList="true" typeRef="com.aprendoz_desarrollo.data.Recurso" name="recursos"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.aprendoz_desarrollo.data.TipoValoracion">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="idTipoValoracion">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <require>insert</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+            </element>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="tipoValoracion"/>
+            <element allowNull="true" isList="true" typeRef="com.aprendoz_desarrollo.data.Actividad" name="actividads"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.aprendoz_desarrollo.data.Unidad">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="idUnidad">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="unidad"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="unit"/>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="fechaInicio"/>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="fechaFin"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="numeroUnidad"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="idSyIdIdSy"/>
+            <element allowNull="false" isList="false" typeRef="com.aprendoz_desarrollo.data.Asignatura" name="asignatura"/>
+            <element allowNull="true" isList="true" typeRef="com.aprendoz_desarrollo.data.Subtopico" name="subtopicos"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.aprendoz_desarrollo.data.VProfesorAsignatura">
+            <element allowNull="false" isList="false" typeRef="com.aprendoz_desarrollo.data.VProfesorAsignaturaId" name="id">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <require>insert</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+            </element>
+        </dataobject>
+        <dataobject supportsQuickData="false" name="id" javaType="com.aprendoz_desarrollo.data.AprEsperadosId">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="personaIdPersona">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <require>insert</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+            </element>
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="asignaturaIdAsignatura">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <require>insert</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+            </element>
+            <element allowNull="false" isList="false" typeRef="java.util.Date" name="fechaEsperada">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <require>insert</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+            </element>
+            <element allowNull="false" isList="false" typeRef="java.lang.Long" name="count___">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <require>insert</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+            </element>
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="sy">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <require>insert</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+            </element>
+        </dataobject>
+        <dataobject supportsQuickData="false" name="id" javaType="com.aprendoz_desarrollo.data.AprLogradosId">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="personaIdPersona">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <require>insert</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+            </element>
+            <element allowNull="false" isList="false" typeRef="java.util.Date" name="fechaLogro">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <require>insert</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+            </element>
+            <element allowNull="false" isList="false" typeRef="java.lang.Long" name="count___">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <require>insert</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+            </element>
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="syIdSy">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <require>insert</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+            </element>
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="idAsignatura">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <require>insert</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+            </element>
+        </dataobject>
+        <dataobject supportsQuickData="false" name="id" javaType="com.aprendoz_desarrollo.data.CalifEstId">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="grupoFamiliar">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <require>insert</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+            </element>
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="idPersona">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <require>insert</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+            </element>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="apellido1">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <require>insert</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+            </element>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="apellido2">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <require>insert</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+            </element>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="nombre1">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <require>insert</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+            </element>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="nombre2">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <require>insert</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+            </element>
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="idAsignatura">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <require>insert</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+            </element>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="asignatura">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <require>insert</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+            </element>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="unidad">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <require>insert</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+            </element>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="subtopico">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <require>insert</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+            </element>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="aprendizaje">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <require>insert</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+            </element>
+            <element allowNull="false" isList="false" typeRef="java.util.Date" name="fechaEsperada">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <require>insert</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+            </element>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="calificacion">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <require>insert</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+            </element>
+            <element allowNull="false" isList="false" typeRef="java.util.Date" name="fechaLogro">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <require>insert</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+            </element>
+        </dataobject>
+        <dataobject supportsQuickData="false" name="id" javaType="com.aprendoz_desarrollo.data.InscAlumAsigCursoId">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="asignaturaIdAsignatura">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <require>insert</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+            </element>
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="personaIdPersona">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <require>insert</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+            </element>
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="cursoIdCurso">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <require>insert</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+            </element>
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="syIdSy">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <require>insert</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+            </element>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="apellido1">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <require>insert</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+            </element>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="apellido2">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <require>insert</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+            </element>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="nombre1">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <require>insert</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+            </element>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="nombre2">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <require>insert</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+            </element>
+        </dataobject>
+        <dataobject supportsQuickData="false" name="id" javaType="com.aprendoz_desarrollo.data.VProfesorAsignaturaId">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="asignaturaIdAsignatura">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <require>insert</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+            </element>
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="personaIdPersona">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <require>insert</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+            </element>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="asignatura">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <require>insert</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+            </element>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="subject">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <require>insert</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+            </element>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="nombreLdap">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <require>insert</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+            </element>
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="syIdSy">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <require>insert</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+            </element>
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="gradoIdGrado">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <require>insert</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+            </element>
+        </dataobject>
+    </dataobjects>
+</service>

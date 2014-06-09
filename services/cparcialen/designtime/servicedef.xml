@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<service xmlns="http://www.activegrid.com/namespaces/ServiceDefinitions/1.0" springFile="cparcialen.spring.xml" type="JavaService" CRUDService="false" class="cparcialen" id="cparcialen">
+    <operation name="sampleJavaOperation">
+        <return isList="false" typeRef="java.lang.String"/>
+    </operation>
+    <dataobjects/>
+</service>

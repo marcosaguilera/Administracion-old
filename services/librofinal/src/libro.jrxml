@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Certificado" pageWidth="612" pageHeight="792" columnWidth="552" leftMargin="30" rightMargin="30" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="ireport.scriptlethandling" value="0"/>
+	<property name="ireport.encoding" value="UTF-8"/>
+	<import value="net.sf.jasperreports.engine.*"/>
+	<import value="java.util.*"/>
+	<import value="net.sf.jasperreports.engine.data.*"/>
+	<parameter name="IdSy" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="codpersona" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT P.Id_Persona AS ALUMNO, P.NOMBRE1, REPLACE(P.Nombre2, '-','') Nombre2, P.APELLIDO1, P.Apellido2, G.Grado, C.Curso
+     , A.Id_Area, A.Area, ASI.Id_Asignatura, ASI.Asignatura, IA.Calificacion AS CAL_ASIGNATURA
+     , PER.periodo, ASI.intensidad_horaria AS INTENSIDAD, I.CALIF_CHAR
+     , ih_area (P.ID_PERSONA, A.ID_AREA, ASI.Grado_Id_Grado, ASI.SY_Id_SY) AS SUMINTENSIDAD
+     , replace(calcula_calif_area_char(P.ID_PERSONA, A.ID_AREA, $P{IdSy}),'BASICO','BÁSICO')AS CALIF_AREA_CHAR
+     , (calcula_calif_area_num(P.ID_PERSONA, A.ID_AREA, $P{IdSy})*1000/1000) AS CALIF_AREA_NUM, ASI.ih_a1, ASI.ih_a2, ASI.ih_a3, ASI.Id_Area1, ASI.Id_Area2,ASI.Id_Area3, A.Area
+     , ih_area_total(P.ID_PERSONA, ASI.Grado_Id_Grado, ASI.SY_Id_SY) AS INTENSIDADTOTAL
+   FROM PERSONA P,
+        ASIGNATURA ASI,
+        INSC_ALUM_ASIG I,
+        PERIODO PER,
+        GRADO G,
+        CURSO C,
+        Insc_Alum_Curso IA,
+        AREA A,
+        SY
+  WHERE P.ID_PERSONA = I.PERSONA_ID_PERSONA
+          AND ASI.Id_Asignatura = I.ASIGNATURA_ID_ASIGNATURA
+	AND I.Periodo_Id_Periodo = PER.Id_Periodo
+	AND ASI.Grado_Id_Grado = G.Id_Grado
+	AND IA.Persona_Id_Persona = P.Id_Persona
+	AND IA.Curso_Id_Curso = C.Id_Curso
+	AND IA.SY_Id_SY = ASI.SY_Id_SY
+             AND (  ASI.Id_Area1 = A.Id_Area
+   	   OR ASI.Id_Area2 = A.Id_Area
+	   OR ASI.Id_Area3 = A.Id_Area)
+          AND I.CALIFICACION IS NOT NULL
+	AND ASI.SY_Id_SY = SY.Id_SY
+	AND P.Id_Persona = $P{codpersona}
+	AND SY.Id_SY = $P{IdSy}
+ORDER BY P.APELLIDO1, P.Apellido2, P.NOMBRE1, P.Nombre2, G.Grado, C.Curso
+       , A.Area, ASI.Asignatura]]>
+	</queryString>
+	<field name="ALUMNO" class="java.lang.Integer"/>
+	<field name="NOMBRE1" class="java.lang.String"/>
+	<field name="Nombre2" class="java.lang.String"/>
+	<field name="APELLIDO1" class="java.lang.String"/>
+	<field name="Apellido2" class="java.lang.String"/>
+	<field name="Grado" class="java.lang.String"/>
+	<field name="Curso" class="java.lang.String"/>
+	<field name="Id_Area" class="java.lang.Integer"/>
+	<field name="Area" class="java.lang.String"/>
+	<field name="Id_Asignatura" class="java.lang.Integer"/>
+	<field name="Asignatura" class="java.lang.String"/>
+	<field name="CAL_ASIGNATURA" class="java.lang.Integer"/>
+	<field name="periodo" class="java.lang.String"/>
+	<field name="INTENSIDAD" class="java.lang.Float"/>
+	<field name="CALIF_CHAR" class="java.lang.String"/>
+	<field name="SUMINTENSIDAD" class="java.lang.Float"/>
+	<field name="CALIF_AREA_CHAR" class="java.lang.String"/>
+	<field name="CALIF_AREA_NUM" class="java.lang.Double"/>
+	<field name="ih_a1" class="java.lang.Float"/>
+	<field name="ih_a2" class="java.lang.Float"/>
+	<field name="ih_a3" class="java.lang.Float"/>
+	<field name="Id_Area1" class="java.lang.Integer"/>
+	<field name="Id_Area2" class="java.lang.Integer"/>
+	<field name="Id_Area3" class="java.lang.Integer"/>
+	<field name="INTENSIDADTOTAL" class="java.lang.Float"/>
+	<variable name="V_INTENSIDAD" class="java.lang.Float" resetType="Group" resetGroup="Area" calculation="Sum">
+		<variableExpression><![CDATA[$F{INTENSIDAD}]]></variableExpression>
+	</variable>
+	<variable name="V_APROBO" class="java.lang.Integer" resetType="Group" resetGroup="Alumno" calculation="Sum">
+		<variableExpression><![CDATA[$F{CALIF_CHAR}!=null?($F{CALIF_CHAR}.equals("Bajo")?(new Integer(1)):(new Integer(0))):($V{V_APROBO})]]></variableExpression>
+	</variable>
+	<variable name="V_PROMOVIDO" class="java.lang.String" resetType="Group" resetGroup="Alumno">
+		<variableExpression><![CDATA[$V{V_APROBO}.equals(new Integer(0))?"SI FUE PROMOVIDO (A)":"NO FUE PROMOVIDO (A)"]]></variableExpression>
+	</variable>
+	<group name="Alumno" isStartNewPage="true" isResetPageNumber="true">
+		<groupExpression><![CDATA[$F{ALUMNO}]]></groupExpression>
+		<groupHeader>
+			<band height="178" splitType="Stretch">
+				<rectangle>
+					<reportElement key="rectangle-1" x="8" y="155" width="532" height="23"/>
+					<graphicElement>
+						<pen lineWidth="2.0"/>
+					</graphicElement>
+				</rectangle>
+				<staticText>
+					<reportElement key="staticText-4" x="66" y="157" width="187" height="20"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" isBold="true" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<text><![CDATA[ÁREAS / ASIGNATURAS]]></text>
+				</staticText>
+				<staticText>
+					<reportElement key="staticText-5" x="397" y="157" width="140" height="20"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" isBold="true" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<text><![CDATA[EVALUACIÓN]]></text>
+				</staticText>
+				<staticText>
+					<reportElement key="staticText-6" x="304" y="157" width="76" height="20"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" isBold="true" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<text><![CDATA[I.H.]]></text>
+				</staticText>
+				<textField isBlankWhenNull="false">
+					<reportElement key="textField-4" x="9" y="125" width="371" height="14"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="Arial" size="12" isBold="true" pdfEncoding="Cp1252" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{APELLIDO1}+" "+($F{Apellido2}!= null?" "+$F{Apellido2}:"")+" "+$F{NOMBRE1}+" "+($F{Nombre2} != null?" "+$F{Nombre2}:"")]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="false">
+					<reportElement key="textField-5" x="425" y="125" width="117" height="16"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial Black" size="11" isBold="true" pdfEncoding="Cp1252"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{Curso}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="297" y="42" width="83" height="17"/>
+					<textElement>
+						<font fontName="Arial" size="14" isBold="true"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{periodo}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement x="493" y="92" width="48" height="1"/>
+				</line>
+				<staticText>
+					<reportElement key="staticText-6" x="441" y="74" width="52" height="20"/>
+					<textElement textAlignment="Center" verticalAlignment="Bottom">
+						<font fontName="Arial" size="11" isBold="true" pdfEncoding="Cp1252"/>
+					</textElement>
+					<text><![CDATA[FOLIO Nº]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="195" y="25" width="160" height="17"/>
+					<textElement textAlignment="Center">
+						<font fontName="Arial" size="14" isBold="true"/>
+					</textElement>
+					<text><![CDATA[COLEGIO ROCHESTER
+]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="187" y="42" width="109" height="17"/>
+					<textElement>
+						<font fontName="Arial" size="14" isBold="true"/>
+					</textElement>
+					<text><![CDATA[AÑO ESCOLAR]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="176" splitType="Stretch">
+				<line>
+					<reportElement key="line-5" x="7" y="-1" width="533" height="1"/>
+					<graphicElement>
+						<pen lineWidth="1.25"/>
+					</graphicElement>
+				</line>
+				<staticText>
+					<reportElement key="staticText-6" x="10" y="67" width="218" height="15"/>
+					<textElement verticalAlignment="Top">
+						<font fontName="Arial Black" size="8" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Observaciones:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement key="staticText-12" x="339" y="164" width="154" height="11"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="SansSerif" size="8" isBold="false" pdfFontName="Helvetica"/>
+					</textElement>
+					<text><![CDATA[Secretario Académico]]></text>
+				</staticText>
+				<line>
+					<reportElement x="10" y="92" width="497" height="1"/>
+					<graphicElement>
+						<pen lineWidth="0.75"/>
+					</graphicElement>
+				</line>
+				<staticText>
+					<reportElement key="staticText-14" x="339" y="148" width="154" height="16"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[ROBERTO HERNÁNDEZ SILVA]]></text>
+				</staticText>
+				<textField isBlankWhenNull="false">
+					<reportElement key="textField" x="10" y="37" width="218" height="20" forecolor="#000000"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="12" isBold="true" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$V{V_PROMOVIDO}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement key="staticText-11" x="29" y="164" width="187" height="11"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="SansSerif" size="8" isBold="false" pdfFontName="Helvetica"/>
+					</textElement>
+					<text><![CDATA[Rector]]></text>
+				</staticText>
+				<line>
+					<reportElement x="10" y="111" width="497" height="1"/>
+					<graphicElement>
+						<pen lineWidth="0.75"/>
+					</graphicElement>
+				</line>
+				<textField>
+					<reportElement x="304" y="10" width="76" height="14"/>
+					<textElement textAlignment="Center">
+						<font fontName="Arial" size="10" isBold="true" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<textFieldExpression class="java.lang.Float"><![CDATA[$F{INTENSIDADTOTAL}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement key="staticText-4" x="66" y="10" width="187" height="14"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" isBold="true" isItalic="false" isUnderline="false" pdfEncoding="Cp1252"/>
+					</textElement>
+					<text><![CDATA[Total intensidad horaria]]></text>
+				</staticText>
+				<staticText>
+					<reportElement key="staticText-14" x="29" y="148" width="187" height="16"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="12" isBold="true" isItalic="false" isUnderline="false" pdfEncoding="Cp1252"/>
+					</textElement>
+					<text><![CDATA[JUAN PABLO ALJURE LEÓN]]></text>
+				</staticText>
+			</band>
+		</groupFooter>
+	</group>
+	<group name="Area">
+		<groupExpression><![CDATA[$F{Id_Area}]]></groupExpression>
+		<groupHeader>
+			<band height="13" splitType="Stretch">
+				<line>
+					<reportElement key="line-1" x="8" y="-1" width="1" height="14"/>
+					<graphicElement>
+						<pen lineWidth="3.0"/>
+					</graphicElement>
+				</line>
+				<textField isBlankWhenNull="false">
+					<reportElement key="textField" x="15" y="1" width="281" height="12"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="8" isBold="true" pdfFontName="Helvetica-Bold" pdfEncoding="Cp1252"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{Area}]]></textFieldExpression>
+				</textField>
+				<textField pattern="###0.00" isBlankWhenNull="false">
+					<reportElement key="textField" x="304" y="1" width="76" height="12"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="8" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<textFieldExpression class="java.lang.Float"><![CDATA[$F{SUMINTENSIDAD}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement key="line-7" x="539" y="-1" width="1" height="14"/>
+					<graphicElement>
+						<pen lineWidth="3.0"/>
+					</graphicElement>
+				</line>
+				<textField isBlankWhenNull="false">
+					<reportElement key="textField" x="397" y="1" width="140" height="12"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="9" isBold="true" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{CALIF_AREA_CHAR}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band splitType="Stretch"/>
+		</groupFooter>
+	</group>
+	<group name="Asignatura">
+		<groupExpression><![CDATA[$F{Id_Asignatura}]]></groupExpression>
+		<groupHeader>
+			<band height="13" splitType="Stretch">
+				<textField isBlankWhenNull="false">
+					<reportElement key="textField-2" x="29" y="1" width="267" height="11"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="6" isBold="false" isItalic="true" pdfFontName="Helvetica-Oblique"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{Asignatura}]]></textFieldExpression>
+				</textField>
+				<textField pattern="##0.0" isBlankWhenNull="true">
+					<reportElement key="textField" x="304" y="1" width="76" height="10" forecolor="#FFFFFF"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<textFieldExpression class="java.lang.Float"><![CDATA[$F{INTENSIDAD}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement key="line-9" x="8" y="0" width="1" height="13"/>
+					<graphicElement>
+						<pen lineWidth="3.0"/>
+					</graphicElement>
+				</line>
+				<line>
+					<reportElement key="line-10" x="539" y="0" width="1" height="13"/>
+					<graphicElement>
+						<pen lineWidth="3.0"/>
+					</graphicElement>
+				</line>
+				<textField>
+					<reportElement x="397" y="0" width="140" height="11"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Helvetica" size="7" isBold="false" isItalic="true" pdfFontName="Helvetica-Oblique" pdfEncoding="Cp1251" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{CALIF_AREA_CHAR}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band splitType="Stretch"/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

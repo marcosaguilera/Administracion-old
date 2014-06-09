@@ -1,0 +1,21 @@
+{
+	"methods": [{
+		"name": "getReport",
+		"parameters": [{
+			"name": "idsy",
+			"type": "java.lang.String"
+		}, {
+			"name": "sy",
+			"type": "java.lang.String"
+		}, {
+			"name": "idnivel",
+			"type": "java.lang.String"
+		}, {
+			"name": "nivel",
+			"type": "java.lang.String"
+		}],
+		"returnType": "com.wavemaker.runtime.server.DownloadResponse"
+	}],
+	"serviceType": "JSON-RPC",
+	"serviceURL": "libroFinalCalificaciones.json"
+}

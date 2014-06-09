@@ -1,0 +1,85 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <meta attribute="@design.default-queries"/>
+    <query name="subjectsByGrade" comment="Query for Subjects">
+        <query-param name="_sy" type="java.lang.Integer"/>
+        <query-param name="_grado" type="java.lang.Integer"/>
+        SELECT  a.idAsignatura as id, a.asignatura as asignatura, g.idGrado as idgrado, sy.idSy, a.idArea1 as a1, a.idArea2 as a2, a.idArea3 as a3, a.idSubarea1 as sa1, a.idSubarea2 as sa2, a.idSubarea3 as sa3
+FROM Asignatura a INNER JOIN a.grado g INNER JOIN a.sy sy
+WHERE sy.idSy=:_sy AND g.idGrado=:_grado
+    </query>
+    <query name="deleteSubject">
+        <query-param name="idasignatura" type="java.lang.Integer"/>
+        DELETE FROM Asignatura a WHERE a.idAsignatura=:idasignatura
+    </query>
+    <query name="updateSubjects">
+        FROM Asignatura a
+    </query>
+    <query name="getProcesoMatricula" comment="se obtiene el curso para el proceso de matricula o admision en el colegio">
+        <query-param name="idp" type="java.lang.Integer"/>
+        SELECT _p.idPersona as code, _p.nombre1 as n1, _p.nombre2 as n2, _p.apellido1 as a1, _p.apellido2 as a2,  MAX(_curso.idCurso) as idcurso, MAX(_sy.idSy) as maximo_sy
+FROM InscAlumCurso _ia
+INNER JOIN _ia.persona as _p
+INNER JOIN _ia.sy as _sy
+INNER JOIN _ia.curso as _curso
+WHERE _p.idPersona=:idp AND (_curso.idCurso &gt;= 10101 AND _curso.idCurso &lt;= 40403)
+GROUP BY
+_p.idPersona
+ORDER BY
+_curso.idCurso desc
+    </query>
+    <query name="HQLlsCursos" comment="listado de cursos sin adminisiones ni matriculas">
+        <query-param name="idg" type="java.lang.Integer"/>
+        SELECT c.idCurso as id, c.curso as curso, g.idGrado as idgrado
+FROM Grado g INNER JOIN g.cursos c
+WHERE c.idCurso &gt;= 10101 and c.idCurso &lt;= 40403
+AND g.idGrado=:idg
+    </query>
+    <query name="getNombreCompleto">
+        <query-param name="usuario" type="java.lang.String"/>
+        select nombre1 AS nombre1, nombre2 AS nombre2 , apellido1 AS apellido1, apellido2 AS apellido2, idPersona AS idp, clave AS clave, nombreLdap as user
+from Persona _p where _p.nombreLdap=:usuario
+    </query>
+    <query name="getMaxSubjectByGrade">
+        <query-param name="idgrado" type="java.lang.Integer"/>
+        <query-param name="idsy" type="java.lang.Integer"/>
+        SELECT MAX(a.idAsignatura) as maxValue, (MAX(a.idAsignatura)+1) as newId
+FROM Asignatura a INNER JOIN a.sy sy INNER JOIN a.grado g
+WHERE g.idGrado=:idgrado AND sy.idSy=:idsy
+    </query>
+    <query name="subjectDetails" comment="This hql shows the subject by Id">
+        <query-param name="idasignatura" type="java.lang.Integer"/>
+        SELECT
+a.idAsignatura as id,
+a.asignatura as asignatura,
+a.subject as subject,
+a.electiva as electiva,
+a.idArea1 as a1,
+a.idArea2 as a2,
+a.idArea3 as a3,
+a.idSubarea1 as sa1,
+a.idSubarea2 as sa2,
+a.idSubarea3 as sa3,
+g.idGrado as idgrado,
+sy.idSy as sy,
+tia.idTipoInscAsig as idTipoInscAsig,
+a.salonIdSalon as salon,
+a.descripAsigEspaniol as descripcion_espanol,
+a.descripAsigIngles as descripcion_ingles,
+a.meses as meses,
+a.ihA1 as iha1,
+a.ihA2 as iha2,
+a.ihA3 as iha3,
+a.intensidadHoraria as ihtotal,
+a.esperadostotal as esperadosTotal,
+a.peso as peso
+FROM Asignatura a INNER JOIN a.grado g INNER JOIN a.sy sy INNER JOIN a.tipoInscAsig tia
+WHERE a.idAsignatura=:idasignatura
+    </query>
+    <query name="getTipoByUsername">
+        <query-param name="user" type="java.lang.String"/>
+        SELECT p.idPersona as id, tp.idTipoPersona as tipo
+FROM Persona p INNER JOIN p.tipoPersona tp
+WHERE p.nombreLdap=:user
+    </query>
+</hibernate-mapping>

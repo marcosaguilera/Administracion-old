@@ -1,0 +1,206 @@
+<?xml version="1.0"?>
+
+<!-- Generated 12/07/2011 16:47:14
+
+Configuration for 'aprendoz_desarrollo' database service
+
+-->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.0.xsd">
+
+
+    <bean 
+        id="aprendoz_desarrollo"
+        class="com.aprendoz_desarrollo.Aprendoz_desarrollo"
+        scope="singleton"
+        lazy-init="true">
+        <property name="dataServiceManager">
+            <ref bean="aprendoz_desarrolloDataService"/>
+        </property>
+        <property name="taskManager">
+            <ref bean="aprendoz_desarrolloTaskMgr"/>
+        </property>
+    </bean>
+
+
+    <bean 
+        class="com.wavemaker.runtime.data.spring.WMPropertyPlaceholderConfigurer">
+        <property name="ignoreUnresolvablePlaceholders" value="true"/>
+        <property name="locations">
+            <list>
+                <value>classpath:aprendoz_desarrollo.properties</value>
+            </list>
+        </property>
+    </bean>
+
+
+    <bean 
+        id="aprendoz_desarrolloDataSource" 
+        class="org.springframework.jdbc.datasource.DriverManagerDataSource" 
+        lazy-init="true">
+        <property name="driverClassName" value="${aprendoz_desarrollo.driverClassName}"/>
+        <property name="url" value="${aprendoz_desarrollo.connectionUrl}"/>
+        <property name="username" value="${aprendoz_desarrollo.username}"/>
+        <property name="password" value="${aprendoz_desarrollo.password}"/>
+    </bean>
+
+
+    <bean 
+        id="aprendoz_desarrolloTxMgr" 
+        class="org.springframework.orm.hibernate3.HibernateTransactionManager"
+        lazy-init="true">
+        <property name="sessionFactory">
+            <ref bean="aprendoz_desarrolloSessionFactory"/>
+        </property>
+    </bean>
+
+
+    <bean 
+        id="aprendoz_desarrolloHibernateTemplate"
+        class="org.springframework.orm.hibernate3.HibernateTemplate"
+        lazy-init="true">
+        <property name="sessionFactory"> 
+            <ref bean="aprendoz_desarrolloSessionFactory"/>
+        </property>
+    </bean>  
+
+
+    <bean 
+        id="aprendoz_desarrolloSessionFactory" 
+        class="com.wavemaker.runtime.data.spring.ConfigurationAndSessionFactoryBean"
+        lazy-init="true">
+
+        <!-- A unique name for this SessionFactory's configuration -->
+        <property name="name" value="aprendoz_desarrollo"/>
+        <property name="dataSource" ref="aprendoz_desarrolloDataSource"/>
+
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">${aprendoz_desarrollo.dialect}</prop>
+                <prop key="hibernate.transaction.factory_class">
+                    org.hibernate.transaction.JDBCTransactionFactory
+                </prop>
+                <prop key="hibernate.current_session_context_class">thread</prop>
+            </props> 
+        </property>
+
+        <property name="mappingResources">
+            <list>
+
+<value>com/aprendoz_desarrollo/data/TipoPersona.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/EstadoDepartamento.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/Area.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/Promocion.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/InscDocAsig.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/InscAlumAprendizaje.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/Sy.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/Eventualidades.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/Asignatura.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/DimensionComprension.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/Persona.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/Curso.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/EventualidadPersonas.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/InscAlumActividad.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/AprEsperados.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/TipoDesempeno.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/CalificacionFinal.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/SubtipoEventualidad.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/LogEventos.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/TipoInscAsig.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/Grado.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/DimensionCurricular.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/InscAlumAsig.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/Salon.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/TipoActividad.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/Pais.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/OtrasMetas.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/Anuncio.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/GrupoFamiliar.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/AprLogrados.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/TipoPeriodo.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/Actividad.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/Aprendizaje.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/Foto.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/InscCursoAsig.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/Recurso.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/Periodo.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/InscAlumCurso.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/NivelEsperado.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/Subarea.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/TipoValoracion.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/TipoAsistencia.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/Subtopico.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/Eje.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/Nivel.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/TipoRecurso.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/TipoEventualidad.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/VProfesorAsignatura.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/Inteligencia.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/Calificaciones.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/InscAlumAsigCurso.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/Unidad.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/CalifEst.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/Sesion.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/Asistencia.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/HistorialCalificaciones.hbm.xml</value>
+
+<value>com/aprendoz_desarrollo/data/TipoPersona.ql.xml</value>
+<value>com/aprendoz_desarrollo/data/app-queries.ql.xml</value>
+
+            </list>
+        </property>
+
+    </bean>
+
+
+    <!-- the data service bean instance is injected into the service bean -->
+    <bean 
+        id="aprendoz_desarrolloDataService" 
+        class="com.wavemaker.runtime.data.spring.SpringDataServiceManager"
+        lazy-init="true">
+        <constructor-arg>
+            <!-- the value of the "name" property of the SessionFactory -->
+            <value>aprendoz_desarrollo</value>
+        </constructor-arg>
+        <constructor-arg>
+            <ref bean="aprendoz_desarrolloHibernateTemplate"/>
+        </constructor-arg>
+        <constructor-arg>
+            <ref bean="aprendoz_desarrolloTxMgr"/>
+        </constructor-arg>
+        <constructor-arg>
+            <ref bean="aprendoz_desarrolloTaskMgr"/>
+        </constructor-arg>
+        <constructor-arg>
+            <map>
+                <entry key="useIndividualCRUDOperations" value="false"/>
+                <entry key="refreshEntities" value=""/> 
+            </map>
+        </constructor-arg>
+    </bean>
+
+
+    <bean 
+        id="aprendoz_desarrolloTaskMgr"
+        class="com.wavemaker.runtime.data.DefaultTaskManager"
+        lazy-init="true"/>
+
+    <bean class="com.wavemaker.runtime.service.events.EventWire"
+        lazy-init="false">
+        <property name="serviceWire" ref="aprendoz_desarrolloServiceWire"/>
+        <property name="eventListener">
+            <bean class="com.wavemaker.runtime.data.DataServiceEventListener"/>
+        </property>
+    </bean>
+
+    <bean id="aprendoz_desarrolloServiceWire"
+        class="com.wavemaker.runtime.service.reflect.ReflectServiceWire"
+        lazy-init="false" scope="singleton">
+        <property name="serviceId" value="aprendoz_desarrollo"/>
+        <property name="serviceType" ref="DataService"/>
+    </bean>
+
+</beans>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<beans xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd" xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <import resource="classpath:aprendoz_desarrollo.spring.xml"/>
+    <import resource="classpath:cfinal.spring.xml"/>
+    <import resource="classpath:cfinalen.spring.xml"/>
+    <import resource="classpath:cparcial.spring.xml"/>
+    <import resource="classpath:cparcial_ambos.spring.xml"/>
+    <import resource="classpath:cparcial_rector.spring.xml"/>
+    <import resource="classpath:cparcial_secretario.spring.xml"/>
+    <import resource="classpath:cparcialen.spring.xml"/>
+    <import resource="classpath:libroFinalCalificaciones.spring.xml"/>
+    <import resource="classpath:librofinal.spring.xml"/>
+    <import resource="classpath:librofinal2.spring.xml"/>
+    <import resource="classpath:com/wavemaker/runtime/service/runtimeServiceBean.xml"/>
+    <import resource="classpath:s311.spring.xml"/>
+    <import resource="classpath:s312.spring.xml"/>
+    <import resource="classpath:s313.spring.xml"/>
+    <import resource="classpath:securityService.spring.xml"/>
+</beans>

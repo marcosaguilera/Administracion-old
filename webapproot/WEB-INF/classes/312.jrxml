@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="312" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" isDefault="false" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" isDefault="false" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" isDefault="false" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" isDefault="false" fontName="Arial" fontSize="12"/>
+	<queryString>
+		<![CDATA[SELECT
+     PERSONA.`Id_Persona` AS PERSONA_Id_Persona,
+     PERSONA.`Codigo` AS PERSONA_Codigo,
+     PERSONA.`Apellido1` AS PERSONA_Apellido1,
+     PERSONA.`Apellido2` AS PERSONA_Apellido2,
+     PERSONA.`Nombre1` AS PERSONA_Nombre1,
+     PERSONA.`Nombre2` AS PERSONA_Nombre2,
+     PERSONA.`Activo_Retirado` AS PERSONA_Activo_Retirado,
+     PERSONA.`matriculado` AS PERSONA_matriculado,
+     Insc_Alum_Curso.`Id_Insc_Alum_Curso` AS Insc_Alum_Curso_Id_Insc_Alum_Curso,
+     Insc_Alum_Curso.`Curso_Id_Curso` AS Insc_Alum_Curso_Curso_Id_Curso,
+     Insc_Alum_Curso.`Persona_Id_Persona` AS Insc_Alum_Curso_Persona_Id_Persona,
+     Curso.`Id_Curso` AS Curso_Id_Curso,
+     Curso.`Curso` AS Curso_Curso,
+     Curso.`Grado_Id_Grado` AS Curso_Grado_Id_Grado,
+     Grado.`Id_Grado` AS Grado_Id_Grado,
+     Grado.`Grado` AS Grado_Grado,
+     Insc_Alum_Curso.`SY_Id_SY` AS Insc_Alum_Curso_SY_Id_SY
+FROM
+     `PERSONA` PERSONA INNER JOIN `Insc_Alum_Curso` Insc_Alum_Curso ON PERSONA.`Id_Persona` = Insc_Alum_Curso.`Persona_Id_Persona`
+     INNER JOIN `Curso` Curso ON Insc_Alum_Curso.`Curso_Id_Curso` = Curso.`Id_Curso`
+     INNER JOIN `Grado` Grado ON Curso.`Grado_Id_Grado` = Grado.`Id_Grado`
+WHERE
+ Matriculado = 1
+ AND Activo_Retirado = 1
+ AND Insc_Alum_Curso.`SY_Id_SY`= 2
+
+order by
+Curso.`Id_Curso` ASC,
+Curso.`Curso` DESC]]>
+	</queryString>
+	<field name="PERSONA_Activo_Retirado" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="PERSONA_matriculado" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="PERSONA_Id_Persona" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Insc_Alum_Curso_Id_Insc_Alum_Curso" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Insc_Alum_Curso_Curso_Id_Curso" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Insc_Alum_Curso_Persona_Id_Persona" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Curso_Id_Curso" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Curso_Grado_Id_Grado" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Grado_Id_Grado" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Insc_Alum_Curso_SY_Id_SY" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="PERSONA_Codigo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="PERSONA_Apellido1" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="PERSONA_Apellido2" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="PERSONA_Nombre1" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="PERSONA_Nombre2" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Curso_Curso" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Grado_Grado" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<group name="Curso_Curso">
+		<groupExpression><![CDATA[$F{Curso_Curso}]]></groupExpression>
+		<groupHeader>
+			<band height="23">
+				<textField>
+					<reportElement style="SubTitle" x="14" y="1" width="408" height="20" forecolor="#000000"/>
+					<textElement>
+						<font size="14" isBold="true" isItalic="true"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{Curso_Id_Curso}+ " "+$F{Curso_Curso}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="20">
+				<textField>
+					<reportElement x="482" y="0" width="68" height="20"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="10" isBold="true"/>
+					</textElement>
+					<textFieldExpression class="java.lang.Integer"><![CDATA[$V{Curso_Curso_COUNT}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="402" y="0" width="78" height="20"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="10" isBold="true"/>
+					</textElement>
+					<text><![CDATA[TOTAL CURSO:]]></text>
+				</staticText>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="70" splitType="Stretch">
+			<staticText>
+				<reportElement style="Title" x="96" y="17" width="329" height="39"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[ESTUDIANTES MATRICULADOS POR
+ AÑO ESCOLAR]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement style="Column header" x="433" y="51" width="116" height="19" forecolor="#000000"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.util.Date"><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1" backcolor="#000000"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Column header" x="48" y="3" width="46" height="15"/>
+				<textElement/>
+				<text><![CDATA[Codigo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="258" y="3" width="164" height="15"/>
+				<textElement/>
+				<text><![CDATA[Apellidos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="98" y="3" width="150" height="15"/>
+				<textElement/>
+				<text><![CDATA[Nombres]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="432" y="3" width="43" height="15"/>
+				<textElement/>
+				<text><![CDATA[Activo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="481" y="3" width="71" height="15"/>
+				<textElement/>
+				<text><![CDATA[Matriculado]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="19" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="17" width="555" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement style="Detail" x="47" y="0" width="47" height="15"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{PERSONA_Codigo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="259" y="0" width="164" height="15"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{PERSONA_Apellido1} + " "+ $F{PERSONA_Apellido2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="432" y="0" width="43" height="15"/>
+				<textElement textAlignment="Center">
+					<font isItalic="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{PERSONA_Activo_Retirado}.equals()==false?"Si":"No"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="482" y="0" width="68" height="15"/>
+				<textElement textAlignment="Center">
+					<font isItalic="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{PERSONA_matriculado}.equals()==false?"Si":"No"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="98" y="0" width="150" height="15"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{PERSONA_Nombre1} + " "+$F{PERSONA_Nombre2}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="5" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="2" width="555" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement style="Column header" x="433" y="0" width="80" height="20"/>
+				<textElement textAlignment="Right">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Pagina "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement style="Column header" x="513" y="0" width="40" height="20"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement style="Column header" x="0" y="0" width="197" height="20"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.util.Date"><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<lastPageFooter>
+		<band height="24">
+			<staticText>
+				<reportElement x="379" y="0" width="69" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TOTAL:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="452" y="0" width="100" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+		</band>
+	</lastPageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
