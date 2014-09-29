@@ -12,8 +12,12 @@ WHERE sy.idSy=:_sy AND g.idGrado=:_grado
         <query-param name="idasignatura" type="java.lang.Integer"/>
         DELETE FROM Asignatura a WHERE a.idAsignatura=:idasignatura
     </query>
-    <query name="updateSubjects">
-        FROM Asignatura a
+    <query name="HQLlsCursos" comment="listado de cursos sin adminisiones ni matriculas">
+        <query-param name="idg" type="java.lang.Integer"/>
+        SELECT c.idCurso as id, c.curso as curso, g.idGrado as idgrado
+FROM Grado g INNER JOIN g.cursos c
+WHERE c.idCurso &gt;= 10101 and c.idCurso &lt;= 40403
+AND g.idGrado=:idg
     </query>
     <query name="getProcesoMatricula" comment="se obtiene el curso para el proceso de matricula o admision en el colegio">
         <query-param name="idp" type="java.lang.Integer"/>
@@ -28,17 +32,19 @@ _p.idPersona
 ORDER BY
 _curso.idCurso desc
     </query>
-    <query name="HQLlsCursos" comment="listado de cursos sin adminisiones ni matriculas">
-        <query-param name="idg" type="java.lang.Integer"/>
-        SELECT c.idCurso as id, c.curso as curso, g.idGrado as idgrado
-FROM Grado g INNER JOIN g.cursos c
-WHERE c.idCurso &gt;= 10101 and c.idCurso &lt;= 40403
-AND g.idGrado=:idg
+    <query name="updateSubjects">
+        FROM Asignatura a
     </query>
     <query name="getNombreCompleto">
         <query-param name="usuario" type="java.lang.String"/>
         select nombre1 AS nombre1, nombre2 AS nombre2 , apellido1 AS apellido1, apellido2 AS apellido2, idPersona AS idp, clave AS clave, nombreLdap as user
 from Persona _p where _p.nombreLdap=:usuario
+    </query>
+    <query name="getTipoByUsername">
+        <query-param name="user" type="java.lang.String"/>
+        SELECT p.idPersona as id, tp.idTipoPersona as tipo
+FROM Persona p INNER JOIN p.tipoPersona tp
+WHERE p.nombreLdap=:user
     </query>
     <query name="getMaxSubjectByGrade">
         <query-param name="idgrado" type="java.lang.Integer"/>
@@ -75,11 +81,5 @@ a.esperadostotal as esperadosTotal,
 a.peso as peso
 FROM Asignatura a INNER JOIN a.grado g INNER JOIN a.sy sy INNER JOIN a.tipoInscAsig tia
 WHERE a.idAsignatura=:idasignatura
-    </query>
-    <query name="getTipoByUsername">
-        <query-param name="user" type="java.lang.String"/>
-        SELECT p.idPersona as id, tp.idTipoPersona as tipo
-FROM Persona p INNER JOIN p.tipoPersona tp
-WHERE p.nombreLdap=:user
     </query>
 </hibernate-mapping>

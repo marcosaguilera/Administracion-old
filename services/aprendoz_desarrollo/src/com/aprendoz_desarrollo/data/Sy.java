@@ -1,65 +1,86 @@
 
 package com.aprendoz_desarrollo.data;
 
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
 
 /**
  *  aprendoz_desarrollo.Sy
- *  08/16/2013 09:24:24
+ *  06/12/2014 18:46:46
  * 
  */
 public class Sy {
 
     private Integer idSy;
     private String schoolYear;
-    private Set<com.aprendoz_desarrollo.data.Promocion> promocions = new HashSet<com.aprendoz_desarrollo.data.Promocion>();
+    private Date fechaDesde;
+    private Date fechaHasta;
     private Set<com.aprendoz_desarrollo.data.InscAlumCosto> inscAlumCostos = new HashSet<com.aprendoz_desarrollo.data.InscAlumCosto>();
+    private Set<com.aprendoz_desarrollo.data.Promocion> promocions = new HashSet<com.aprendoz_desarrollo.data.Promocion>();
     private Set<com.aprendoz_desarrollo.data.InscCoordinadoresCurso> inscCoordinadoresCursos = new HashSet<com.aprendoz_desarrollo.data.InscCoordinadoresCurso>();
     private Set<com.aprendoz_desarrollo.data.CoordinacionDeGrupo> coordinacionDeGrupos = new HashSet<com.aprendoz_desarrollo.data.CoordinacionDeGrupo>();
     private Set<com.aprendoz_desarrollo.data.InscAlumCurso> inscAlumCursos = new HashSet<com.aprendoz_desarrollo.data.InscAlumCurso>();
     private Set<com.aprendoz_desarrollo.data.BimestreSy> bimestreSies = new HashSet<com.aprendoz_desarrollo.data.BimestreSy>();
     private Set<com.aprendoz_desarrollo.data.Cronograma> cronogramas = new HashSet<com.aprendoz_desarrollo.data.Cronograma>();
     private Set<com.aprendoz_desarrollo.data.Semana> semanas = new HashSet<com.aprendoz_desarrollo.data.Semana>();
+    private Set<com.aprendoz_desarrollo.data.InscComentariosAlumnos> inscComentariosAlumnoses = new HashSet<com.aprendoz_desarrollo.data.InscComentariosAlumnos>();
+    private Set<com.aprendoz_desarrollo.data.InscAlumCostoCopy> inscAlumCostoCopies = new HashSet<com.aprendoz_desarrollo.data.InscAlumCostoCopy>();
     private Set<com.aprendoz_desarrollo.data.Horario> horarios = new HashSet<com.aprendoz_desarrollo.data.Horario>();
+    private Set<com.aprendoz_desarrollo.data.AsignaturaCopy> asignaturaCopies = new HashSet<com.aprendoz_desarrollo.data.AsignaturaCopy>();
     private Set<com.aprendoz_desarrollo.data.Periodo> periodos = new HashSet<com.aprendoz_desarrollo.data.Periodo>();
-    private Set<com.aprendoz_desarrollo.data.InscAlumArea> inscAlumAreas = new HashSet<com.aprendoz_desarrollo.data.InscAlumArea>();
+    private Set<com.aprendoz_desarrollo.data.CostosAnualesCopy> costosAnualesCopies = new HashSet<com.aprendoz_desarrollo.data.CostosAnualesCopy>();
     private Set<com.aprendoz_desarrollo.data.Asignatura> asignaturas = new HashSet<com.aprendoz_desarrollo.data.Asignatura>();
+    private Set<com.aprendoz_desarrollo.data.Educom> educoms = new HashSet<com.aprendoz_desarrollo.data.Educom>();
     private Set<com.aprendoz_desarrollo.data.Coordinadores> coordinadoreses = new HashSet<com.aprendoz_desarrollo.data.Coordinadores>();
     private Set<com.aprendoz_desarrollo.data.Costos> costoses = new HashSet<com.aprendoz_desarrollo.data.Costos>();
     private Set<com.aprendoz_desarrollo.data.Matricula> matriculas = new HashSet<com.aprendoz_desarrollo.data.Matricula>();
     private Set<com.aprendoz_desarrollo.data.SesionNivel> sesionNivels = new HashSet<com.aprendoz_desarrollo.data.SesionNivel>();
+    private Set<com.aprendoz_desarrollo.data.SecretariaEquivalenciaNotas> secretariaEquivalenciaNotases = new HashSet<com.aprendoz_desarrollo.data.SecretariaEquivalenciaNotas>();
     private Set<com.aprendoz_desarrollo.data.Coordinacion> coordinacions = new HashSet<com.aprendoz_desarrollo.data.Coordinacion>();
+    private Set<com.aprendoz_desarrollo.data.CostosAnuales> costosAnualeses = new HashSet<com.aprendoz_desarrollo.data.CostosAnuales>();
+    private Set<com.aprendoz_desarrollo.data.PromocionCopy> promocionCopies = new HashSet<com.aprendoz_desarrollo.data.PromocionCopy>();
 
     public Sy() {
     }
 
-    public Sy(Integer idSy, String schoolYear) {
+    public Sy(Integer idSy, String schoolYear, Date fechaDesde, Date fechaHasta) {
         this.idSy = idSy;
         this.schoolYear = schoolYear;
+        this.fechaDesde = fechaDesde;
+        this.fechaHasta = fechaHasta;
     }
 
-    public Sy(Integer idSy, String schoolYear, Set<com.aprendoz_desarrollo.data.Promocion> promocions, Set<com.aprendoz_desarrollo.data.InscAlumCosto> inscAlumCostos, Set<com.aprendoz_desarrollo.data.InscCoordinadoresCurso> inscCoordinadoresCursos, Set<com.aprendoz_desarrollo.data.CoordinacionDeGrupo> coordinacionDeGrupos, Set<com.aprendoz_desarrollo.data.InscAlumCurso> inscAlumCursos, Set<com.aprendoz_desarrollo.data.BimestreSy> bimestreSies, Set<com.aprendoz_desarrollo.data.Cronograma> cronogramas, Set<com.aprendoz_desarrollo.data.Semana> semanas, Set<com.aprendoz_desarrollo.data.Horario> horarios, Set<com.aprendoz_desarrollo.data.Periodo> periodos, Set<com.aprendoz_desarrollo.data.InscAlumArea> inscAlumAreas, Set<com.aprendoz_desarrollo.data.Asignatura> asignaturas, Set<com.aprendoz_desarrollo.data.Coordinadores> coordinadoreses, Set<com.aprendoz_desarrollo.data.Costos> costoses, Set<com.aprendoz_desarrollo.data.Matricula> matriculas, Set<com.aprendoz_desarrollo.data.SesionNivel> sesionNivels, Set<com.aprendoz_desarrollo.data.Coordinacion> coordinacions) {
+    public Sy(Integer idSy, String schoolYear, Date fechaDesde, Date fechaHasta, Set<com.aprendoz_desarrollo.data.InscAlumCosto> inscAlumCostos, Set<com.aprendoz_desarrollo.data.Promocion> promocions, Set<com.aprendoz_desarrollo.data.InscCoordinadoresCurso> inscCoordinadoresCursos, Set<com.aprendoz_desarrollo.data.CoordinacionDeGrupo> coordinacionDeGrupos, Set<com.aprendoz_desarrollo.data.InscAlumCurso> inscAlumCursos, Set<com.aprendoz_desarrollo.data.BimestreSy> bimestreSies, Set<com.aprendoz_desarrollo.data.Cronograma> cronogramas, Set<com.aprendoz_desarrollo.data.Semana> semanas, Set<com.aprendoz_desarrollo.data.InscComentariosAlumnos> inscComentariosAlumnoses, Set<com.aprendoz_desarrollo.data.InscAlumCostoCopy> inscAlumCostoCopies, Set<com.aprendoz_desarrollo.data.Horario> horarios, Set<com.aprendoz_desarrollo.data.AsignaturaCopy> asignaturaCopies, Set<com.aprendoz_desarrollo.data.Periodo> periodos, Set<com.aprendoz_desarrollo.data.CostosAnualesCopy> costosAnualesCopies, Set<com.aprendoz_desarrollo.data.Asignatura> asignaturas, Set<com.aprendoz_desarrollo.data.Educom> educoms, Set<com.aprendoz_desarrollo.data.Coordinadores> coordinadoreses, Set<com.aprendoz_desarrollo.data.Costos> costoses, Set<com.aprendoz_desarrollo.data.Matricula> matriculas, Set<com.aprendoz_desarrollo.data.SesionNivel> sesionNivels, Set<com.aprendoz_desarrollo.data.SecretariaEquivalenciaNotas> secretariaEquivalenciaNotases, Set<com.aprendoz_desarrollo.data.Coordinacion> coordinacions, Set<com.aprendoz_desarrollo.data.CostosAnuales> costosAnualeses, Set<com.aprendoz_desarrollo.data.PromocionCopy> promocionCopies) {
         this.idSy = idSy;
         this.schoolYear = schoolYear;
-        this.promocions = promocions;
+        this.fechaDesde = fechaDesde;
+        this.fechaHasta = fechaHasta;
         this.inscAlumCostos = inscAlumCostos;
+        this.promocions = promocions;
         this.inscCoordinadoresCursos = inscCoordinadoresCursos;
         this.coordinacionDeGrupos = coordinacionDeGrupos;
         this.inscAlumCursos = inscAlumCursos;
         this.bimestreSies = bimestreSies;
         this.cronogramas = cronogramas;
         this.semanas = semanas;
+        this.inscComentariosAlumnoses = inscComentariosAlumnoses;
+        this.inscAlumCostoCopies = inscAlumCostoCopies;
         this.horarios = horarios;
+        this.asignaturaCopies = asignaturaCopies;
         this.periodos = periodos;
-        this.inscAlumAreas = inscAlumAreas;
+        this.costosAnualesCopies = costosAnualesCopies;
         this.asignaturas = asignaturas;
+        this.educoms = educoms;
         this.coordinadoreses = coordinadoreses;
         this.costoses = costoses;
         this.matriculas = matriculas;
         this.sesionNivels = sesionNivels;
+        this.secretariaEquivalenciaNotases = secretariaEquivalenciaNotases;
         this.coordinacions = coordinacions;
+        this.costosAnualeses = costosAnualeses;
+        this.promocionCopies = promocionCopies;
     }
 
     public Integer getIdSy() {
@@ -78,12 +99,20 @@ public class Sy {
         this.schoolYear = schoolYear;
     }
 
-    public Set<com.aprendoz_desarrollo.data.Promocion> getPromocions() {
-        return promocions;
+    public Date getFechaDesde() {
+        return fechaDesde;
     }
 
-    public void setPromocions(Set<com.aprendoz_desarrollo.data.Promocion> promocions) {
-        this.promocions = promocions;
+    public void setFechaDesde(Date fechaDesde) {
+        this.fechaDesde = fechaDesde;
+    }
+
+    public Date getFechaHasta() {
+        return fechaHasta;
+    }
+
+    public void setFechaHasta(Date fechaHasta) {
+        this.fechaHasta = fechaHasta;
     }
 
     public Set<com.aprendoz_desarrollo.data.InscAlumCosto> getInscAlumCostos() {
@@ -92,6 +121,14 @@ public class Sy {
 
     public void setInscAlumCostos(Set<com.aprendoz_desarrollo.data.InscAlumCosto> inscAlumCostos) {
         this.inscAlumCostos = inscAlumCostos;
+    }
+
+    public Set<com.aprendoz_desarrollo.data.Promocion> getPromocions() {
+        return promocions;
+    }
+
+    public void setPromocions(Set<com.aprendoz_desarrollo.data.Promocion> promocions) {
+        this.promocions = promocions;
     }
 
     public Set<com.aprendoz_desarrollo.data.InscCoordinadoresCurso> getInscCoordinadoresCursos() {
@@ -142,12 +179,36 @@ public class Sy {
         this.semanas = semanas;
     }
 
+    public Set<com.aprendoz_desarrollo.data.InscComentariosAlumnos> getInscComentariosAlumnoses() {
+        return inscComentariosAlumnoses;
+    }
+
+    public void setInscComentariosAlumnoses(Set<com.aprendoz_desarrollo.data.InscComentariosAlumnos> inscComentariosAlumnoses) {
+        this.inscComentariosAlumnoses = inscComentariosAlumnoses;
+    }
+
+    public Set<com.aprendoz_desarrollo.data.InscAlumCostoCopy> getInscAlumCostoCopies() {
+        return inscAlumCostoCopies;
+    }
+
+    public void setInscAlumCostoCopies(Set<com.aprendoz_desarrollo.data.InscAlumCostoCopy> inscAlumCostoCopies) {
+        this.inscAlumCostoCopies = inscAlumCostoCopies;
+    }
+
     public Set<com.aprendoz_desarrollo.data.Horario> getHorarios() {
         return horarios;
     }
 
     public void setHorarios(Set<com.aprendoz_desarrollo.data.Horario> horarios) {
         this.horarios = horarios;
+    }
+
+    public Set<com.aprendoz_desarrollo.data.AsignaturaCopy> getAsignaturaCopies() {
+        return asignaturaCopies;
+    }
+
+    public void setAsignaturaCopies(Set<com.aprendoz_desarrollo.data.AsignaturaCopy> asignaturaCopies) {
+        this.asignaturaCopies = asignaturaCopies;
     }
 
     public Set<com.aprendoz_desarrollo.data.Periodo> getPeriodos() {
@@ -158,12 +219,12 @@ public class Sy {
         this.periodos = periodos;
     }
 
-    public Set<com.aprendoz_desarrollo.data.InscAlumArea> getInscAlumAreas() {
-        return inscAlumAreas;
+    public Set<com.aprendoz_desarrollo.data.CostosAnualesCopy> getCostosAnualesCopies() {
+        return costosAnualesCopies;
     }
 
-    public void setInscAlumAreas(Set<com.aprendoz_desarrollo.data.InscAlumArea> inscAlumAreas) {
-        this.inscAlumAreas = inscAlumAreas;
+    public void setCostosAnualesCopies(Set<com.aprendoz_desarrollo.data.CostosAnualesCopy> costosAnualesCopies) {
+        this.costosAnualesCopies = costosAnualesCopies;
     }
 
     public Set<com.aprendoz_desarrollo.data.Asignatura> getAsignaturas() {
@@ -172,6 +233,14 @@ public class Sy {
 
     public void setAsignaturas(Set<com.aprendoz_desarrollo.data.Asignatura> asignaturas) {
         this.asignaturas = asignaturas;
+    }
+
+    public Set<com.aprendoz_desarrollo.data.Educom> getEducoms() {
+        return educoms;
+    }
+
+    public void setEducoms(Set<com.aprendoz_desarrollo.data.Educom> educoms) {
+        this.educoms = educoms;
     }
 
     public Set<com.aprendoz_desarrollo.data.Coordinadores> getCoordinadoreses() {
@@ -206,12 +275,36 @@ public class Sy {
         this.sesionNivels = sesionNivels;
     }
 
+    public Set<com.aprendoz_desarrollo.data.SecretariaEquivalenciaNotas> getSecretariaEquivalenciaNotases() {
+        return secretariaEquivalenciaNotases;
+    }
+
+    public void setSecretariaEquivalenciaNotases(Set<com.aprendoz_desarrollo.data.SecretariaEquivalenciaNotas> secretariaEquivalenciaNotases) {
+        this.secretariaEquivalenciaNotases = secretariaEquivalenciaNotases;
+    }
+
     public Set<com.aprendoz_desarrollo.data.Coordinacion> getCoordinacions() {
         return coordinacions;
     }
 
     public void setCoordinacions(Set<com.aprendoz_desarrollo.data.Coordinacion> coordinacions) {
         this.coordinacions = coordinacions;
+    }
+
+    public Set<com.aprendoz_desarrollo.data.CostosAnuales> getCostosAnualeses() {
+        return costosAnualeses;
+    }
+
+    public void setCostosAnualeses(Set<com.aprendoz_desarrollo.data.CostosAnuales> costosAnualeses) {
+        this.costosAnualeses = costosAnualeses;
+    }
+
+    public Set<com.aprendoz_desarrollo.data.PromocionCopy> getPromocionCopies() {
+        return promocionCopies;
+    }
+
+    public void setPromocionCopies(Set<com.aprendoz_desarrollo.data.PromocionCopy> promocionCopies) {
+        this.promocionCopies = promocionCopies;
     }
 
 }

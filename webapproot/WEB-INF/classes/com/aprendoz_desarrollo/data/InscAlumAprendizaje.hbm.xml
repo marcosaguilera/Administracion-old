@@ -15,10 +15,13 @@
             <column name="Calificacion_Num" precision="12" not-null="true"/>
         </property>
         <property name="comentario" type="string">
-            <column name="Comentario" length="500"/>
+            <column name="Comentario" length="65535"/>
         </property>
         <property name="fechaIngreso" type="timestamp">
             <column name="Fecha_Ingreso" length="19"/>
+        </property>
+        <property name="usuario" type="string">
+            <column name="usuario" length="50"/>
         </property>
         <many-to-one name="persona" class="com.aprendoz_desarrollo.data.Persona" cascade="none">
             <column name="Persona_Id_Persona" not-null="true"/>

@@ -5,9 +5,14 @@
             <map merge="true">
                 <entry key="aprendoz_desarrollo">
                     <list>
+                        <value>com.aprendoz_desarrollo.data.AccAuthorization</value>
+                        <value>com.aprendoz_desarrollo.data.AccStudentCard</value>
+                        <value>com.aprendoz_desarrollo.data.AccStudentCardAuthorization</value>
                         <value>com.aprendoz_desarrollo.data.Actividad</value>
                         <value>com.aprendoz_desarrollo.data.ActualizacionDatosPersona</value>
+                        <value>com.aprendoz_desarrollo.data.ActualizacionDatosPersonaCopy</value>
                         <value>com.aprendoz_desarrollo.data.ActualizacionGrupoFamiliar</value>
+                        <value>com.aprendoz_desarrollo.data.ActualizacionGrupoFamiliarCopy</value>
                         <value>com.aprendoz_desarrollo.data.AdministracionVistaAsignaturas</value>
                         <value>com.aprendoz_desarrollo.data.AdministracionVistaAsignaturasCurso</value>
                         <value>com.aprendoz_desarrollo.data.AdministracionVistaInscAlumAsig</value>
@@ -18,11 +23,19 @@
                         <value>com.aprendoz_desarrollo.data.AprEsperados</value>
                         <value>com.aprendoz_desarrollo.data.AprLogrados</value>
                         <value>com.aprendoz_desarrollo.data.Aprendizaje</value>
+                        <value>com.aprendoz_desarrollo.data.AprendizajesAsignaturas</value>
                         <value>com.aprendoz_desarrollo.data.Area</value>
                         <value>com.aprendoz_desarrollo.data.Asignatura</value>
+                        <value>com.aprendoz_desarrollo.data.AsignaturaCopy</value>
                         <value>com.aprendoz_desarrollo.data.Asistencia</value>
                         <value>com.aprendoz_desarrollo.data.BimestreSy</value>
                         <value>com.aprendoz_desarrollo.data.BisUsers</value>
+                        <value>com.aprendoz_desarrollo.data.BusBus</value>
+                        <value>com.aprendoz_desarrollo.data.BusDriver</value>
+                        <value>com.aprendoz_desarrollo.data.BusPhone</value>
+                        <value>com.aprendoz_desarrollo.data.BusRoute</value>
+                        <value>com.aprendoz_desarrollo.data.BusStudentRoute</value>
+                        <value>com.aprendoz_desarrollo.data.CafemuObservacionesClase</value>
                         <value>com.aprendoz_desarrollo.data.CafeteriaGartinuras</value>
                         <value>com.aprendoz_desarrollo.data.CafeteriaMenu</value>
                         <value>com.aprendoz_desarrollo.data.CafeteriaPostres</value>
@@ -32,16 +45,19 @@
                         <value>com.aprendoz_desarrollo.data.CalifEst</value>
                         <value>com.aprendoz_desarrollo.data.CalifEstCopy</value>
                         <value>com.aprendoz_desarrollo.data.CalificacionFinal</value>
-                        <value>com.aprendoz_desarrollo.data.CodigosCorrecion</value>
+                        <value>com.aprendoz_desarrollo.data.Cargos</value>
                         <value>com.aprendoz_desarrollo.data.Coordinacion</value>
                         <value>com.aprendoz_desarrollo.data.CoordinacionDeGrupo</value>
                         <value>com.aprendoz_desarrollo.data.Coordinadores</value>
                         <value>com.aprendoz_desarrollo.data.CortesAnuales</value>
                         <value>com.aprendoz_desarrollo.data.Costos</value>
+                        <value>com.aprendoz_desarrollo.data.CostosAnuales</value>
+                        <value>com.aprendoz_desarrollo.data.CostosAnualesCopy</value>
                         <value>com.aprendoz_desarrollo.data.Cronograma</value>
                         <value>com.aprendoz_desarrollo.data.CurriculoGrado</value>
                         <value>com.aprendoz_desarrollo.data.Curso</value>
                         <value>com.aprendoz_desarrollo.data.Davivienda</value>
+                        <value>com.aprendoz_desarrollo.data.DaviviendaCopy</value>
                         <value>com.aprendoz_desarrollo.data.DimensionComprension</value>
                         <value>com.aprendoz_desarrollo.data.DimensionCurricular</value>
                         <value>com.aprendoz_desarrollo.data.DirectoresDocentesListadoReportes</value>
@@ -56,50 +72,59 @@
                         <value>com.aprendoz_desarrollo.data.DocentesVistaInscAlumnAsig</value>
                         <value>com.aprendoz_desarrollo.data.DocentesVistaInscAlumnAsigDemografica</value>
                         <value>com.aprendoz_desarrollo.data.DocentesVistaPersonasDemografica</value>
+                        <value>com.aprendoz_desarrollo.data.Educom</value>
+                        <value>com.aprendoz_desarrollo.data.EducomLog</value>
                         <value>com.aprendoz_desarrollo.data.Eje</value>
                         <value>com.aprendoz_desarrollo.data.EstadoDepartamento</value>
                         <value>com.aprendoz_desarrollo.data.EventualidadPersonas</value>
                         <value>com.aprendoz_desarrollo.data.Eventualidades</value>
+                        <value>com.aprendoz_desarrollo.data.FacturacionSapiens</value>
                         <value>com.aprendoz_desarrollo.data.FichaMedica</value>
                         <value>com.aprendoz_desarrollo.data.Formulario5a</value>
-                        <value>com.aprendoz_desarrollo.data.Foto</value>
+                        <value>com.aprendoz_desarrollo.data.GestionEncuestas</value>
+                        <value>com.aprendoz_desarrollo.data.GestionEncuestasGrupoFamiliar</value>
                         <value>com.aprendoz_desarrollo.data.Grado</value>
+                        <value>com.aprendoz_desarrollo.data.GradoSiguiente</value>
                         <value>com.aprendoz_desarrollo.data.GrupoFamiliar</value>
                         <value>com.aprendoz_desarrollo.data.Horario</value>
                         <value>com.aprendoz_desarrollo.data.ImportacionAlumnosTransporte</value>
                         <value>com.aprendoz_desarrollo.data.ImportacionCartera</value>
+                        <value>com.aprendoz_desarrollo.data.ImportacionCarteraCopy</value>
                         <value>com.aprendoz_desarrollo.data.ImportacionDavivienda</value>
-                        <value>com.aprendoz_desarrollo.data.ImportacionDaviviendaCopy2</value>
-                        <value>com.aprendoz_desarrollo.data.ImportacionDaviviendaCopy3</value>
-                        <value>com.aprendoz_desarrollo.data.ImportacionDaviviendaCopy4</value>
-                        <value>com.aprendoz_desarrollo.data.ImportacionDaviviendaCopy5</value>
-                        <value>com.aprendoz_desarrollo.data.ImportacionDaviviendaCopy6</value>
+                        <value>com.aprendoz_desarrollo.data.ImportacionDaviviendaFaltantes</value>
+                        <value>com.aprendoz_desarrollo.data.ImportacionExtracto</value>
                         <value>com.aprendoz_desarrollo.data.ImportadorSapiens</value>
-                        <value>com.aprendoz_desarrollo.data.IngresoRutas</value>
                         <value>com.aprendoz_desarrollo.data.InscAlumActividad</value>
                         <value>com.aprendoz_desarrollo.data.InscAlumAprendizaje</value>
-                        <value>com.aprendoz_desarrollo.data.InscAlumArea</value>
                         <value>com.aprendoz_desarrollo.data.InscAlumAsig</value>
+                        <value>com.aprendoz_desarrollo.data.InscAlumAsigCopy</value>
+                        <value>com.aprendoz_desarrollo.data.InscAlumAsigCopy2</value>
+                        <value>com.aprendoz_desarrollo.data.InscAlumAsigCopy3</value>
                         <value>com.aprendoz_desarrollo.data.InscAlumAsigCurso</value>
                         <value>com.aprendoz_desarrollo.data.InscAlumAsigCursoCompleto</value>
                         <value>com.aprendoz_desarrollo.data.InscAlumCosto</value>
+                        <value>com.aprendoz_desarrollo.data.InscAlumCostoCopy</value>
                         <value>com.aprendoz_desarrollo.data.InscAlumCurso</value>
-                        <value>com.aprendoz_desarrollo.data.InscAlumTransporte</value>
+                        <value>com.aprendoz_desarrollo.data.InscComentariosAlumnos</value>
                         <value>com.aprendoz_desarrollo.data.InscCoordinadoresCurso</value>
                         <value>com.aprendoz_desarrollo.data.InscCursoAsig</value>
+                        <value>com.aprendoz_desarrollo.data.InscCursoAsigCopy</value>
                         <value>com.aprendoz_desarrollo.data.InscDirectorNivel</value>
+                        <value>com.aprendoz_desarrollo.data.InscPersonaEduCom</value>
                         <value>com.aprendoz_desarrollo.data.InscPersonaGrupoFamiliar</value>
                         <value>com.aprendoz_desarrollo.data.InscipcionesVistaAsignaturas</value>
                         <value>com.aprendoz_desarrollo.data.InscripcionesVistaInscAlumnCurso</value>
                         <value>com.aprendoz_desarrollo.data.Inteligencia</value>
+                        <value>com.aprendoz_desarrollo.data.LogAccionesDocentes</value>
                         <value>com.aprendoz_desarrollo.data.LogDocentes</value>
                         <value>com.aprendoz_desarrollo.data.LogEventos</value>
+                        <value>com.aprendoz_desarrollo.data.LogIngresoCarne</value>
+                        <value>com.aprendoz_desarrollo.data.LogMatriculasAccionesUsuarios</value>
                         <value>com.aprendoz_desarrollo.data.Logeventosaprendoz</value>
                         <value>com.aprendoz_desarrollo.data.Matricula</value>
                         <value>com.aprendoz_desarrollo.data.Nacionalidades</value>
                         <value>com.aprendoz_desarrollo.data.Nivel</value>
                         <value>com.aprendoz_desarrollo.data.NivelEsperado</value>
-                        <value>com.aprendoz_desarrollo.data.Novedades</value>
                         <value>com.aprendoz_desarrollo.data.OtrasMetas</value>
                         <value>com.aprendoz_desarrollo.data.PadresVistaActividades</value>
                         <value>com.aprendoz_desarrollo.data.PadresVistaAprendizajes</value>
@@ -109,19 +134,25 @@
                         <value>com.aprendoz_desarrollo.data.PadresVistaPersonasPromocion</value>
                         <value>com.aprendoz_desarrollo.data.PadresVistaRecursos</value>
                         <value>com.aprendoz_desarrollo.data.Pais</value>
+                        <value>com.aprendoz_desarrollo.data.PerfilPersonaImg</value>
                         <value>com.aprendoz_desarrollo.data.Periodo</value>
                         <value>com.aprendoz_desarrollo.data.Persona</value>
                         <value>com.aprendoz_desarrollo.data.PersonaCarne</value>
+                        <value>com.aprendoz_desarrollo.data.PersonaEdad</value>
                         <value>com.aprendoz_desarrollo.data.Personal</value>
                         <value>com.aprendoz_desarrollo.data.Promocion</value>
+                        <value>com.aprendoz_desarrollo.data.PromocionCopy</value>
                         <value>com.aprendoz_desarrollo.data.PromocionVistaInscAlumnCurso</value>
                         <value>com.aprendoz_desarrollo.data.Recurso</value>
                         <value>com.aprendoz_desarrollo.data.ReporteDavivienda</value>
                         <value>com.aprendoz_desarrollo.data.Reportes</value>
                         <value>com.aprendoz_desarrollo.data.ReportesDependencias</value>
                         <value>com.aprendoz_desarrollo.data.ReportesTipoPersona</value>
-                        <value>com.aprendoz_desarrollo.data.Rutas</value>
                         <value>com.aprendoz_desarrollo.data.Salon</value>
+                        <value>com.aprendoz_desarrollo.data.SecretariaEquivalenciaNotas</value>
+                        <value>com.aprendoz_desarrollo.data.SecretariaRetiroEstudiantes</value>
+                        <value>com.aprendoz_desarrollo.data.SeguridadPermisosModulos</value>
+                        <value>com.aprendoz_desarrollo.data.SeguridadPersonasAccesos</value>
                         <value>com.aprendoz_desarrollo.data.Semana</value>
                         <value>com.aprendoz_desarrollo.data.ServiciosListadoServiciosAlumnos</value>
                         <value>com.aprendoz_desarrollo.data.Sesion</value>
@@ -130,15 +161,19 @@
                         <value>com.aprendoz_desarrollo.data.SubtipoEventualidad</value>
                         <value>com.aprendoz_desarrollo.data.Subtopico</value>
                         <value>com.aprendoz_desarrollo.data.Sy</value>
+                        <value>com.aprendoz_desarrollo.data.TestPorcentajes</value>
                         <value>com.aprendoz_desarrollo.data.TipoActividad</value>
                         <value>com.aprendoz_desarrollo.data.TipoAsistencia</value>
+                        <value>com.aprendoz_desarrollo.data.TipoCosto</value>
                         <value>com.aprendoz_desarrollo.data.TipoDependencia</value>
                         <value>com.aprendoz_desarrollo.data.TipoDesempeno</value>
                         <value>com.aprendoz_desarrollo.data.TipoDia</value>
                         <value>com.aprendoz_desarrollo.data.TipoEps</value>
                         <value>com.aprendoz_desarrollo.data.TipoEventualidad</value>
+                        <value>com.aprendoz_desarrollo.data.TipoFalla</value>
                         <value>com.aprendoz_desarrollo.data.TipoInscAsig</value>
                         <value>com.aprendoz_desarrollo.data.TipoLugar</value>
+                        <value>com.aprendoz_desarrollo.data.TipoPago</value>
                         <value>com.aprendoz_desarrollo.data.TipoPeriodo</value>
                         <value>com.aprendoz_desarrollo.data.TipoPersona</value>
                         <value>com.aprendoz_desarrollo.data.TipoRecurso</value>
@@ -148,6 +183,10 @@
                         <value>com.aprendoz_desarrollo.data.TipoValoracion</value>
                         <value>com.aprendoz_desarrollo.data.TmpBoletin20122013</value>
                         <value>com.aprendoz_desarrollo.data.TmpEnrLog</value>
+                        <value>com.aprendoz_desarrollo.data.TransporteIngresoRutas</value>
+                        <value>com.aprendoz_desarrollo.data.TransporteInscAlumTransporte</value>
+                        <value>com.aprendoz_desarrollo.data.TransporteNovedades</value>
+                        <value>com.aprendoz_desarrollo.data.TransporteRutas</value>
                         <value>com.aprendoz_desarrollo.data.Unidad</value>
                         <value>com.aprendoz_desarrollo.data.VProfesorAsignatura</value>
                         <value>com.aprendoz_desarrollo.data.VProfesorAsignaturaCompleto</value>
@@ -160,65 +199,65 @@
                         <value>com.aprendoz_desarrollo.data.VistaEventualidadesNotificacionesFamilia</value>
                         <value>com.aprendoz_desarrollo.data.VistaInscAlumnCurso</value>
                         <value>com.aprendoz_desarrollo.data.VistaMatriculasGraficasTotalDia</value>
-                        <value>com.aprendoz_desarrollo.data.VistaPadresRutasAlumnos</value>
-                        <value>com.aprendoz_desarrollo.data.VistaPadresTransportePersonas</value>
-                        <value>com.aprendoz_desarrollo.data.VistaPadresTransporteRutas</value>
                         <value>com.aprendoz_desarrollo.data.VistaPersonasGrupoFamiliar</value>
-                        <value>com.aprendoz_desarrollo.data.DocentesVistaCalificacionFinalId</value>
-                        <value>com.aprendoz_desarrollo.data.DocentesVistaAsignaturasId</value>
-                        <value>com.aprendoz_desarrollo.data.PadresVistaCalifFinalId</value>
-                        <value>com.aprendoz_desarrollo.data.DocentesVistaAprendizajesAsignaturaId</value>
-                        <value>com.aprendoz_desarrollo.data.VistaInscAlumnCursoId</value>
-                        <value>com.aprendoz_desarrollo.data.PadresVistaPersonasId</value>
-                        <value>com.aprendoz_desarrollo.data.DocentesVistaAsignaturaGradoId</value>
-                        <value>com.aprendoz_desarrollo.data.PadresVistaInscAlumAsigId</value>
-                        <value>com.aprendoz_desarrollo.data.VistaPadresTransportePersonasId</value>
-                        <value>com.aprendoz_desarrollo.data.DocentesAsistenciaAsistenciasId</value>
-                        <value>com.aprendoz_desarrollo.data.DocentesInscCursoAsignaturaId</value>
-                        <value>com.aprendoz_desarrollo.data.InscAlumAsigCursoId</value>
-                        <value>com.aprendoz_desarrollo.data.AdministracionVistaPersonasId</value>
-                        <value>com.aprendoz_desarrollo.data.VistaEnvioCorreoId</value>
-                        <value>com.aprendoz_desarrollo.data.DocentesInicioVistaDetallesAccesoId</value>
-                        <value>com.aprendoz_desarrollo.data.DocentesVistaInscAlumnAsigId</value>
-                        <value>com.aprendoz_desarrollo.data.VProfesorAsignaturaId</value>
-                        <value>com.aprendoz_desarrollo.data.VistaPersonasGrupoFamiliarId</value>
-                        <value>com.aprendoz_desarrollo.data.DocentesVistaInscAlumnAsigDemograficaId</value>
-                        <value>com.aprendoz_desarrollo.data.PromocionVistaInscAlumnCursoId</value>
-                        <value>com.aprendoz_desarrollo.data.AprEsperadosId</value>
-                        <value>com.aprendoz_desarrollo.data.VistaEventualidadesNotificacionesFamiliaId</value>
-                        <value>com.aprendoz_desarrollo.data.PadresVistaActividadesId</value>
-                        <value>com.aprendoz_desarrollo.data.PadresVistaRecursosId</value>
-                        <value>com.aprendoz_desarrollo.data.DirectoresDocentesListadoReportesId</value>
-                        <value>com.aprendoz_desarrollo.data.PadresVistaAprendizajesId</value>
-                        <value>com.aprendoz_desarrollo.data.VistaPadresRutasAlumnosId</value>
-                        <value>com.aprendoz_desarrollo.data.CalifEstId</value>
-                        <value>com.aprendoz_desarrollo.data.InscipcionesVistaAsignaturasId</value>
-                        <value>com.aprendoz_desarrollo.data.VistaDashboardAvanzadosYMagistralesId</value>
-                        <value>com.aprendoz_desarrollo.data.AdministracionVistaInscAlumAsigId</value>
-                        <value>com.aprendoz_desarrollo.data.BisUsersId</value>
-                        <value>com.aprendoz_desarrollo.data.PadresVistaPersonasPromocionId</value>
-                        <value>com.aprendoz_desarrollo.data.VistaAlumnosActivosPrejardinNuevosId</value>
-                        <value>com.aprendoz_desarrollo.data.VistaEventualidadesNotificacionesId</value>
-                        <value>com.aprendoz_desarrollo.data.VistaPadresTransporteRutasId</value>
+                        <value>com.aprendoz_desarrollo.data.Vistaasistencia</value>
                         <value>com.aprendoz_desarrollo.data.VistaAlumnosActivosId</value>
-                        <value>com.aprendoz_desarrollo.data.VistaDashboardNoCalificadosId</value>
-                        <value>com.aprendoz_desarrollo.data.InscripcionesVistaInscAlumnCursoId</value>
-                        <value>com.aprendoz_desarrollo.data.DocentesVistaDristribucionAlumnosCursosId</value>
-                        <value>com.aprendoz_desarrollo.data.InscAlumAsigCursoCompletoId</value>
+                        <value>com.aprendoz_desarrollo.data.ServiciosListadoServiciosAlumnosId</value>
+                        <value>com.aprendoz_desarrollo.data.DocentesVistaInscAlumnAsigId</value>
                         <value>com.aprendoz_desarrollo.data.VistaMatriculasGraficasTotalDiaId</value>
-                        <value>com.aprendoz_desarrollo.data.AdministracionVistaInscAlumnCursoId</value>
-                        <value>com.aprendoz_desarrollo.data.DocentesVistaPersonasDemograficaId</value>
-                        <value>com.aprendoz_desarrollo.data.AdministracionVistaAsignaturasCursoId</value>
-                        <value>com.aprendoz_desarrollo.data.CoordinacionId</value>
-                        <value>com.aprendoz_desarrollo.data.TmpEnrLogId</value>
-                        <value>com.aprendoz_desarrollo.data.AdministracionVistaAsignaturasId</value>
-                        <value>com.aprendoz_desarrollo.data.CoordinadoresId</value>
-                        <value>com.aprendoz_desarrollo.data.AprLogradosId</value>
+                        <value>com.aprendoz_desarrollo.data.DocentesVistaAprendizajesAsignaturaId</value>
+                        <value>com.aprendoz_desarrollo.data.AprEsperadosId</value>
+                        <value>com.aprendoz_desarrollo.data.PadresVistaActividadesId</value>
+                        <value>com.aprendoz_desarrollo.data.PadresVistaPersonasId</value>
                         <value>com.aprendoz_desarrollo.data.TmpBoletin20122013Id</value>
                         <value>com.aprendoz_desarrollo.data.CurriculoGradoId</value>
-                        <value>com.aprendoz_desarrollo.data.VProfesorAsignaturaCompletoId</value>
-                        <value>com.aprendoz_desarrollo.data.ServiciosListadoServiciosAlumnosId</value>
+                        <value>com.aprendoz_desarrollo.data.AdministracionVistaInscAlumnCursoId</value>
+                        <value>com.aprendoz_desarrollo.data.AdministracionVistaPersonasId</value>
+                        <value>com.aprendoz_desarrollo.data.PadresVistaPersonasPromocionId</value>
+                        <value>com.aprendoz_desarrollo.data.DocentesVistaDristribucionAlumnosCursosId</value>
+                        <value>com.aprendoz_desarrollo.data.VistaAlumnosActivosPrejardinNuevosId</value>
+                        <value>com.aprendoz_desarrollo.data.AdministracionVistaAsignaturasCursoId</value>
+                        <value>com.aprendoz_desarrollo.data.VistaDashboardAvanzadosYMagistralesId</value>
+                        <value>com.aprendoz_desarrollo.data.InscipcionesVistaAsignaturasId</value>
+                        <value>com.aprendoz_desarrollo.data.TmpEnrLogId</value>
+                        <value>com.aprendoz_desarrollo.data.VistaasistenciaId</value>
+                        <value>com.aprendoz_desarrollo.data.InscAlumAsigCursoId</value>
+                        <value>com.aprendoz_desarrollo.data.PadresVistaAprendizajesId</value>
+                        <value>com.aprendoz_desarrollo.data.VistaPersonasGrupoFamiliarId</value>
+                        <value>com.aprendoz_desarrollo.data.PadresVistaRecursosId</value>
+                        <value>com.aprendoz_desarrollo.data.VistaDashboardNoCalificadosId</value>
+                        <value>com.aprendoz_desarrollo.data.DocentesVistaInscAlumnAsigDemograficaId</value>
+                        <value>com.aprendoz_desarrollo.data.DocentesAsistenciaAsistenciasId</value>
+                        <value>com.aprendoz_desarrollo.data.FacturacionSapiensId</value>
+                        <value>com.aprendoz_desarrollo.data.BisUsersId</value>
+                        <value>com.aprendoz_desarrollo.data.VistaEventualidadesNotificacionesFamiliaId</value>
                         <value>com.aprendoz_desarrollo.data.CalifEstCopyId</value>
+                        <value>com.aprendoz_desarrollo.data.AdministracionVistaInscAlumAsigId</value>
+                        <value>com.aprendoz_desarrollo.data.AccStudentCardAuthorizationId</value>
+                        <value>com.aprendoz_desarrollo.data.VProfesorAsignaturaCompletoId</value>
+                        <value>com.aprendoz_desarrollo.data.DocentesVistaAsignaturaGradoId</value>
+                        <value>com.aprendoz_desarrollo.data.ImportacionExtractoId</value>
+                        <value>com.aprendoz_desarrollo.data.DocentesInscCursoAsignaturaId</value>
+                        <value>com.aprendoz_desarrollo.data.PromocionVistaInscAlumnCursoId</value>
+                        <value>com.aprendoz_desarrollo.data.DocentesVistaAsignaturasId</value>
+                        <value>com.aprendoz_desarrollo.data.CoordinacionId</value>
+                        <value>com.aprendoz_desarrollo.data.PersonaEdadId</value>
+                        <value>com.aprendoz_desarrollo.data.PadresVistaInscAlumAsigId</value>
+                        <value>com.aprendoz_desarrollo.data.AdministracionVistaAsignaturasId</value>
+                        <value>com.aprendoz_desarrollo.data.PadresVistaCalifFinalId</value>
+                        <value>com.aprendoz_desarrollo.data.AprLogradosId</value>
+                        <value>com.aprendoz_desarrollo.data.VistaEventualidadesNotificacionesId</value>
+                        <value>com.aprendoz_desarrollo.data.DocentesInicioVistaDetallesAccesoId</value>
+                        <value>com.aprendoz_desarrollo.data.CoordinadoresId</value>
+                        <value>com.aprendoz_desarrollo.data.DocentesVistaCalificacionFinalId</value>
+                        <value>com.aprendoz_desarrollo.data.VProfesorAsignaturaId</value>
+                        <value>com.aprendoz_desarrollo.data.CalifEstId</value>
+                        <value>com.aprendoz_desarrollo.data.InscAlumAsigCursoCompletoId</value>
+                        <value>com.aprendoz_desarrollo.data.DirectoresDocentesListadoReportesId</value>
+                        <value>com.aprendoz_desarrollo.data.VistaInscAlumnCursoId</value>
+                        <value>com.aprendoz_desarrollo.data.DocentesVistaPersonasDemograficaId</value>
+                        <value>com.aprendoz_desarrollo.data.VistaEnvioCorreoId</value>
+                        <value>com.aprendoz_desarrollo.data.InscripcionesVistaInscAlumnCursoId</value>
                         <value>com.aprendoz_desarrollo.data.output.GetNombreCompletoRtnType</value>
                         <value>com.aprendoz_desarrollo.data.output.SubjectDetailsRtnType</value>
                         <value>com.aprendoz_desarrollo.data.output.HQLlsCursosRtnType</value>

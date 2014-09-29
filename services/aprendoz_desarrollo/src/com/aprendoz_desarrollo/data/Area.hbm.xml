@@ -11,18 +11,9 @@
         <property name="areaName" type="string">
             <column name="Area_Name" length="300"/>
         </property>
-        <property name="intensidadHoraria" type="integer">
-            <column name="Intensidad_Horaria" not-null="true"/>
-        </property>
         <property name="idSyIdIdSy" type="integer">
             <column name="idSY_id_idSY"/>
         </property>
-        <set name="inscAlumAreas" inverse="true">
-            <key>
-                <column name="Area_Id_Area" not-null="true"/>
-            </key>
-            <one-to-many class="com.aprendoz_desarrollo.data.InscAlumArea"/>
-        </set>
         <set name="subareas" inverse="true">
             <key>
                 <column name="Area_Id_Area"/>

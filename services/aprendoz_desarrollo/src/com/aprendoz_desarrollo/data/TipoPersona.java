@@ -7,13 +7,14 @@ import java.util.Set;
 
 /**
  *  aprendoz_desarrollo.TipoPersona
- *  08/16/2013 09:24:25
+ *  06/12/2014 18:46:46
  * 
  */
 public class TipoPersona {
 
     private Integer idTipoPersona;
     private String tipoPersona;
+    private Set<com.aprendoz_desarrollo.data.AccAuthorization> accAuthorizations = new HashSet<com.aprendoz_desarrollo.data.AccAuthorization>();
     private Set<com.aprendoz_desarrollo.data.InscPersonaGrupoFamiliar> inscPersonaGrupoFamiliars = new HashSet<com.aprendoz_desarrollo.data.InscPersonaGrupoFamiliar>();
     private Set<com.aprendoz_desarrollo.data.Persona> personas = new HashSet<com.aprendoz_desarrollo.data.Persona>();
     private Set<com.aprendoz_desarrollo.data.ReportesTipoPersona> reportesTipoPersonas = new HashSet<com.aprendoz_desarrollo.data.ReportesTipoPersona>();
@@ -26,9 +27,10 @@ public class TipoPersona {
         this.tipoPersona = tipoPersona;
     }
 
-    public TipoPersona(Integer idTipoPersona, String tipoPersona, Set<com.aprendoz_desarrollo.data.InscPersonaGrupoFamiliar> inscPersonaGrupoFamiliars, Set<com.aprendoz_desarrollo.data.Persona> personas, Set<com.aprendoz_desarrollo.data.ReportesTipoPersona> reportesTipoPersonas) {
+    public TipoPersona(Integer idTipoPersona, String tipoPersona, Set<com.aprendoz_desarrollo.data.AccAuthorization> accAuthorizations, Set<com.aprendoz_desarrollo.data.InscPersonaGrupoFamiliar> inscPersonaGrupoFamiliars, Set<com.aprendoz_desarrollo.data.Persona> personas, Set<com.aprendoz_desarrollo.data.ReportesTipoPersona> reportesTipoPersonas) {
         this.idTipoPersona = idTipoPersona;
         this.tipoPersona = tipoPersona;
+        this.accAuthorizations = accAuthorizations;
         this.inscPersonaGrupoFamiliars = inscPersonaGrupoFamiliars;
         this.personas = personas;
         this.reportesTipoPersonas = reportesTipoPersonas;
@@ -48,6 +50,14 @@ public class TipoPersona {
 
     public void setTipoPersona(String tipoPersona) {
         this.tipoPersona = tipoPersona;
+    }
+
+    public Set<com.aprendoz_desarrollo.data.AccAuthorization> getAccAuthorizations() {
+        return accAuthorizations;
+    }
+
+    public void setAccAuthorizations(Set<com.aprendoz_desarrollo.data.AccAuthorization> accAuthorizations) {
+        this.accAuthorizations = accAuthorizations;
     }
 
     public Set<com.aprendoz_desarrollo.data.InscPersonaGrupoFamiliar> getInscPersonaGrupoFamiliars() {

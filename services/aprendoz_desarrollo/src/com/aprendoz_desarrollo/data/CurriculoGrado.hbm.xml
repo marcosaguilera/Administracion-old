@@ -24,7 +24,7 @@
                 <column name="Aprendizaje" length="500"/>
             </key-property>
             <key-property name="actividad" type="string">
-                <column name="Actividad" length="500"/>
+                <column name="Actividad" length="65535"/>
             </key-property>
             <key-property name="recurso" type="string">
                 <column name="Recurso" length="300"/>

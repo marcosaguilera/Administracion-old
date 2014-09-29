@@ -11,11 +11,17 @@
         <property name="grupoLdap" type="string">
             <column name="Grupo_LDAP" length="45"/>
         </property>
-        <set name="rutases" inverse="true">
+        <set name="transporteRutases" inverse="true">
             <key>
                 <column name="grupo_familiad_id_grupo_familiar" not-null="true"/>
             </key>
-            <one-to-many class="com.aprendoz_desarrollo.data.Rutas"/>
+            <one-to-many class="com.aprendoz_desarrollo.data.TransporteRutas"/>
+        </set>
+        <set name="actualizacionGrupoFamiliarCopies" inverse="true">
+            <key>
+                <column name="grupo_familiar_id_grupo_familiar" not-null="true"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.ActualizacionGrupoFamiliarCopy"/>
         </set>
         <set name="personas" inverse="true">
             <key>
@@ -28,6 +34,12 @@
                 <column name="Grupo_familiar_Id_Grupo_Familiar" not-null="true"/>
             </key>
             <one-to-many class="com.aprendoz_desarrollo.data.InscPersonaGrupoFamiliar"/>
+        </set>
+        <set name="gestionEncuestasGrupoFamiliars" inverse="true">
+            <key>
+                <column name="grupo_familiar_id_grupo_familiar" not-null="true"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.GestionEncuestasGrupoFamiliar"/>
         </set>
         <set name="actualizacionGrupoFamiliars" inverse="true">
             <key>

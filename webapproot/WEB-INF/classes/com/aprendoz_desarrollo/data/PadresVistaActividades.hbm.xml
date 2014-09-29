@@ -9,7 +9,7 @@
                 <column name="Id_Actividad"/>
             </key-property>
             <key-property name="actividad" type="string">
-                <column name="Actividad" length="500"/>
+                <column name="Actividad" length="65535"/>
             </key-property>
             <key-property name="fecha" type="date">
                 <column name="Fecha" length="10"/>

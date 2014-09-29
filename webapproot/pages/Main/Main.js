@@ -612,63 +612,50 @@ dojo.declare("Main", wm.Page, {
     } catch(e) {
       console.error('ERROR IN button18Click: ' + e); 
     } 
-  },
-  
+  },  
   suscritoBoxChange: function(inSender, inDisplayValue, inDataValue) {
-    try {
       if(this.suscritoBox.dataValue=="rector"){
          this.headBox.setValue("displayValue", "EL SUSCRITO RECTOR");    
-         this.suscrito1Box.setValue("displayValue", "JUAN PABLO ALJURE LEON");    
+         this.suscrito1Box.setValue("displayValue", "SONIA LILIANA MUÑOZ OLEA");    
          this.cargo1Box.setValue("displayValue", "Rector");  
          this.suscrito2Box.setValue("displayValue", " ");    
          this.cargo2Box.setValue("displayValue", " ");      
         }
-         if(this.suscritoBox.dataValue=="secretario"){  
-          this.suscrito1Box.clear();
-           this.cargo1Box.clear();
-            this.suscrito2Box.clear();
-             this.cargo2Box.clear();
-              this.headBox.setValue("displayValue", "EL SUSCRITO SECRETARIO");
-               this.suscrito1Box.setValue("displayValue", "ROBERTO HERNANDEZ SILVA");    
-                this.cargo1Box.setValue("displayValue", "Secretario Academico");    
-                 this.suscrito2Box.setValue("displayValue", " ");    
-                  this.cargo2Box.setValue("displayValue", " "); 
+      if(this.suscritoBox.dataValue=="secretario"){  
+         this.suscrito1Box.clear();
+         this.cargo1Box.clear();
+         this.suscrito2Box.clear();
+         this.cargo2Box.clear();
+         this.headBox.setValue("displayValue", "EL SUSCRITO SECRETARIO");
+         this.suscrito1Box.setValue("displayValue", "NESTOR ARIAS TORRES");    
+         this.cargo1Box.setValue("displayValue", "Secretario Académico");    
+         this.suscrito2Box.setValue("displayValue", " ");    
+         this.cargo2Box.setValue("displayValue", " "); 
         }
-         if(this.suscritoBox.dataValue=="ambos"){
-          this.suscrito1Box.clear();
-           this.cargo1Box.clear();
-            this.suscrito2Box.clear();
-             this.cargo2Box.clear();
-              this.headBox.setValue("displayValue", "LOS SUSCRITOS RECTOR Y SECRETARIO");
-               this.suscrito1Box.setValue("displayValue", "JUAN PABLO ALJURE LEON");    
-                this.cargo1Box.setValue("displayValue", "Rector"); 
-                 this.suscrito2Box.setValue("displayValue", "ROBERTO HERNANDEZ SILVA");    
-                  this.cargo2Box.setValue("displayValue", "Secretario Academico");       
-            
-        }
-      
-    } catch(e) {
-      console.error('ERROR IN headBoxChange: ' + e); 
-    } 
+      if(this.suscritoBox.dataValue=="ambos"){
+         this.suscrito1Box.clear();
+         this.cargo1Box.clear();
+         this.suscrito2Box.clear();
+         this.cargo2Box.clear();
+         this.headBox.setValue("displayValue", "LOS SUSCRITOS RECTOR Y SECRETARIO");
+         this.suscrito1Box.setValue("displayValue", "SONIA LILIANA MUÑOZ OLEA");    
+         this.cargo1Box.setValue("displayValue", "Rector"); 
+         this.suscrito2Box.setValue("displayValue", "NESTOR ARIAS TORRES");    
+         this.cargo2Box.setValue("displayValue", "Secretario Académico");                   
+      }
   },
-  tipoPersonaLookup1Change: function(inSender, inDisplayValue, inDataValue) {
-    try {
+  tipoPersonaLookup1Change: function(inSender, inDisplayValue, inDataValue) {¡
       if(this.tipoPersonaLookup1.displayValue =="Estudiante"){
          this.panel_otros.hide();
          this.panel_estudiantes.show();
          this.panel_salud.show();
          this.panel_servicios.show();                 
-        }
-         else{
+      }else{
           this.panel_estudiantes.hide();
           this.panel_servicios.hide();
           this.panel_salud.show();
-          this.panel_otros.show();
-                
-        }
-    } catch(e) {
-      console.error('ERROR IN tipoPersonaLookup1Change: ' + e); 
-    } 
+          this.panel_otros.show();          
+      }
   },
   picture4Click: function(inSender) {
     try {

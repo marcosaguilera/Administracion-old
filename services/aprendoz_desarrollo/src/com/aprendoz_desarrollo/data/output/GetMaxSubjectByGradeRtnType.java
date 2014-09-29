@@ -4,7 +4,7 @@ package com.aprendoz_desarrollo.data.output;
 
 
 /**
- * Generated for query "getMaxSubjectByGrade" on 03/12/2014 08:49:00
+ * Generated for query "getMaxSubjectByGrade" on 06/12/2014 18:46:59
  * 
  */
 public class GetMaxSubjectByGradeRtnType {

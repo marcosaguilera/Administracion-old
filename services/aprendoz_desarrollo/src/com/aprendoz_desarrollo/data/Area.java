@@ -7,7 +7,7 @@ import java.util.Set;
 
 /**
  *  aprendoz_desarrollo.Area
- *  08/16/2013 09:24:24
+ *  06/12/2014 18:46:46
  * 
  */
 public class Area {
@@ -15,29 +15,24 @@ public class Area {
     private Integer idArea;
     private String area;
     private String areaName;
-    private Integer intensidadHoraria;
     private Integer idSyIdIdSy;
-    private Set<com.aprendoz_desarrollo.data.InscAlumArea> inscAlumAreas = new HashSet<com.aprendoz_desarrollo.data.InscAlumArea>();
     private Set<com.aprendoz_desarrollo.data.Subarea> subareas = new HashSet<com.aprendoz_desarrollo.data.Subarea>();
 
     public Area() {
     }
 
-    public Area(Integer idArea, String area, String areaName, Integer intensidadHoraria, Integer idSyIdIdSy) {
+    public Area(Integer idArea, String area, String areaName, Integer idSyIdIdSy) {
         this.idArea = idArea;
         this.area = area;
         this.areaName = areaName;
-        this.intensidadHoraria = intensidadHoraria;
         this.idSyIdIdSy = idSyIdIdSy;
     }
 
-    public Area(Integer idArea, String area, String areaName, Integer intensidadHoraria, Integer idSyIdIdSy, Set<com.aprendoz_desarrollo.data.InscAlumArea> inscAlumAreas, Set<com.aprendoz_desarrollo.data.Subarea> subareas) {
+    public Area(Integer idArea, String area, String areaName, Integer idSyIdIdSy, Set<com.aprendoz_desarrollo.data.Subarea> subareas) {
         this.idArea = idArea;
         this.area = area;
         this.areaName = areaName;
-        this.intensidadHoraria = intensidadHoraria;
         this.idSyIdIdSy = idSyIdIdSy;
-        this.inscAlumAreas = inscAlumAreas;
         this.subareas = subareas;
     }
 
@@ -65,28 +60,12 @@ public class Area {
         this.areaName = areaName;
     }
 
-    public Integer getIntensidadHoraria() {
-        return intensidadHoraria;
-    }
-
-    public void setIntensidadHoraria(Integer intensidadHoraria) {
-        this.intensidadHoraria = intensidadHoraria;
-    }
-
     public Integer getIdSyIdIdSy() {
         return idSyIdIdSy;
     }
 
     public void setIdSyIdIdSy(Integer idSyIdIdSy) {
         this.idSyIdIdSy = idSyIdIdSy;
-    }
-
-    public Set<com.aprendoz_desarrollo.data.InscAlumArea> getInscAlumAreas() {
-        return inscAlumAreas;
-    }
-
-    public void setInscAlumAreas(Set<com.aprendoz_desarrollo.data.InscAlumArea> inscAlumAreas) {
-        this.inscAlumAreas = inscAlumAreas;
     }
 
     public Set<com.aprendoz_desarrollo.data.Subarea> getSubareas() {

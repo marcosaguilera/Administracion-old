@@ -8,11 +8,11 @@
         <property name="solicitud" type="string">
             <column name="solicitud" length="80" not-null="true"/>
         </property>
-        <set name="novedadeses" inverse="true">
+        <set name="transporteNovedadeses" inverse="true">
             <key>
                 <column name="tipo_solicitud_id_tipo_solucitud" not-null="true"/>
             </key>
-            <one-to-many class="com.aprendoz_desarrollo.data.Novedades"/>
+            <one-to-many class="com.aprendoz_desarrollo.data.TransporteNovedades"/>
         </set>
     </class>
 </hibernate-mapping>

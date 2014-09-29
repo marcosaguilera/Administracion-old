@@ -5,7 +5,7 @@ package com.aprendoz_desarrollo.data;
 
 /**
  *  aprendoz_desarrollo.Salon
- *  08/16/2013 09:24:24
+ *  06/12/2014 18:46:46
  * 
  */
 public class Salon {

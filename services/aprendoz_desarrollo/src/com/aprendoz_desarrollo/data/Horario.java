@@ -5,7 +5,7 @@ package com.aprendoz_desarrollo.data;
 
 /**
  *  aprendoz_desarrollo.Horario
- *  08/16/2013 09:24:25
+ *  06/12/2014 18:46:45
  * 
  */
 public class Horario {
@@ -16,18 +16,18 @@ public class Horario {
     private Sy sy;
     private TipoSemana tipoSemana;
     private Integer numeroSesion;
-    private Integer dia;
+    private String dia;
 
     public Horario() {
     }
 
-    public Horario(Integer idHorario, Integer numeroSesion, Integer dia) {
+    public Horario(Integer idHorario, Integer numeroSesion, String dia) {
         this.idHorario = idHorario;
         this.numeroSesion = numeroSesion;
         this.dia = dia;
     }
 
-    public Horario(Integer idHorario, Curso curso, Asignatura asignatura, Sy sy, TipoSemana tipoSemana, Integer numeroSesion, Integer dia) {
+    public Horario(Integer idHorario, Curso curso, Asignatura asignatura, Sy sy, TipoSemana tipoSemana, Integer numeroSesion, String dia) {
         this.idHorario = idHorario;
         this.curso = curso;
         this.asignatura = asignatura;
@@ -85,11 +85,11 @@ public class Horario {
         this.numeroSesion = numeroSesion;
     }
 
-    public Integer getDia() {
+    public String getDia() {
         return dia;
     }
 
-    public void setDia(Integer dia) {
+    public void setDia(String dia) {
         this.dia = dia;
     }
 

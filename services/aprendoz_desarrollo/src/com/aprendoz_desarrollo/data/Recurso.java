@@ -5,7 +5,7 @@ package com.aprendoz_desarrollo.data;
 
 /**
  *  aprendoz_desarrollo.Recurso
- *  08/16/2013 09:24:25
+ *  06/12/2014 18:46:45
  * 
  */
 public class Recurso {
@@ -14,28 +14,26 @@ public class Recurso {
     private Subtopico subtopico;
     private TipoRecurso tipoRecurso;
     private String recurso;
-    private byte[] documento;
     private String ubicacion;
-    private Integer idSyIdIdSy;
+    private String fileName;
 
     public Recurso() {
     }
 
-    public Recurso(Integer idRecurso, String recurso, String ubicacion, Integer idSyIdIdSy) {
+    public Recurso(Integer idRecurso, String recurso, String ubicacion, String fileName) {
         this.idRecurso = idRecurso;
         this.recurso = recurso;
         this.ubicacion = ubicacion;
-        this.idSyIdIdSy = idSyIdIdSy;
+        this.fileName = fileName;
     }
 
-    public Recurso(Integer idRecurso, Subtopico subtopico, TipoRecurso tipoRecurso, String recurso, byte[] documento, String ubicacion, Integer idSyIdIdSy) {
+    public Recurso(Integer idRecurso, Subtopico subtopico, TipoRecurso tipoRecurso, String recurso, String ubicacion, String fileName) {
         this.idRecurso = idRecurso;
         this.subtopico = subtopico;
         this.tipoRecurso = tipoRecurso;
         this.recurso = recurso;
-        this.documento = documento;
         this.ubicacion = ubicacion;
-        this.idSyIdIdSy = idSyIdIdSy;
+        this.fileName = fileName;
     }
 
     public Integer getIdRecurso() {
@@ -70,14 +68,6 @@ public class Recurso {
         this.recurso = recurso;
     }
 
-    public byte[] getDocumento() {
-        return documento;
-    }
-
-    public void setDocumento(byte[] documento) {
-        this.documento = documento;
-    }
-
     public String getUbicacion() {
         return ubicacion;
     }
@@ -86,12 +76,12 @@ public class Recurso {
         this.ubicacion = ubicacion;
     }
 
-    public Integer getIdSyIdIdSy() {
-        return idSyIdIdSy;
+    public String getFileName() {
+        return fileName;
     }
 
-    public void setIdSyIdIdSy(Integer idSyIdIdSy) {
-        this.idSyIdIdSy = idSyIdIdSy;
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
     }
 
 }

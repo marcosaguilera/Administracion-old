@@ -8,17 +8,23 @@
         <property name="schoolYear" type="string">
             <column name="School_year" length="45"/>
         </property>
-        <set name="promocions" inverse="true">
-            <key>
-                <column name="SY_Id_Sy" not-null="true"/>
-            </key>
-            <one-to-many class="com.aprendoz_desarrollo.data.Promocion"/>
-        </set>
+        <property name="fechaDesde" type="date">
+            <column name="fecha_desde" length="10"/>
+        </property>
+        <property name="fechaHasta" type="date">
+            <column name="fecha_hasta" length="10"/>
+        </property>
         <set name="inscAlumCostos" inverse="true">
             <key>
                 <column name="SY_Id_SY" not-null="true"/>
             </key>
             <one-to-many class="com.aprendoz_desarrollo.data.InscAlumCosto"/>
+        </set>
+        <set name="promocions" inverse="true">
+            <key>
+                <column name="SY_Id_Sy" not-null="true"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.Promocion"/>
         </set>
         <set name="inscCoordinadoresCursos" inverse="true">
             <key>
@@ -56,11 +62,29 @@
             </key>
             <one-to-many class="com.aprendoz_desarrollo.data.Semana"/>
         </set>
+        <set name="inscComentariosAlumnoses" inverse="true">
+            <key>
+                <column name="sy_id_sy" not-null="true"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.InscComentariosAlumnos"/>
+        </set>
+        <set name="inscAlumCostoCopies" inverse="true">
+            <key>
+                <column name="SY_Id_SY" not-null="true"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.InscAlumCostoCopy"/>
+        </set>
         <set name="horarios" inverse="true">
             <key>
                 <column name="sy_id_sy" not-null="true"/>
             </key>
             <one-to-many class="com.aprendoz_desarrollo.data.Horario"/>
+        </set>
+        <set name="asignaturaCopies" inverse="true">
+            <key>
+                <column name="SY_Id_SY" not-null="true"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.AsignaturaCopy"/>
         </set>
         <set name="periodos" inverse="true">
             <key>
@@ -68,17 +92,23 @@
             </key>
             <one-to-many class="com.aprendoz_desarrollo.data.Periodo"/>
         </set>
-        <set name="inscAlumAreas" inverse="true">
+        <set name="costosAnualesCopies" inverse="true">
             <key>
-                <column name="SY_id_SY" not-null="true"/>
+                <column name="SY_Id_SY" not-null="true"/>
             </key>
-            <one-to-many class="com.aprendoz_desarrollo.data.InscAlumArea"/>
+            <one-to-many class="com.aprendoz_desarrollo.data.CostosAnualesCopy"/>
         </set>
         <set name="asignaturas" inverse="true">
             <key>
                 <column name="SY_Id_SY" not-null="true"/>
             </key>
             <one-to-many class="com.aprendoz_desarrollo.data.Asignatura"/>
+        </set>
+        <set name="educoms" inverse="true">
+            <key>
+                <column name="sy_id_sy" not-null="true"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.Educom"/>
         </set>
         <set name="coordinadoreses" inverse="true">
             <key>
@@ -104,11 +134,29 @@
             </key>
             <one-to-many class="com.aprendoz_desarrollo.data.SesionNivel"/>
         </set>
+        <set name="secretariaEquivalenciaNotases" inverse="true">
+            <key>
+                <column name="sy_id_sy" not-null="true"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.SecretariaEquivalenciaNotas"/>
+        </set>
         <set name="coordinacions" inverse="true">
             <key>
                 <column name="SY_Id_SY" not-null="true"/>
             </key>
             <one-to-many class="com.aprendoz_desarrollo.data.Coordinacion"/>
+        </set>
+        <set name="costosAnualeses" inverse="true">
+            <key>
+                <column name="SY_Id_SY" not-null="true"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.CostosAnuales"/>
+        </set>
+        <set name="promocionCopies" inverse="true">
+            <key>
+                <column name="SY_Id_Sy" not-null="true"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.PromocionCopy"/>
         </set>
     </class>
 </hibernate-mapping>

@@ -7,14 +7,14 @@ import java.util.Set;
 
 /**
  *  aprendoz_desarrollo.TipoSolicitud
- *  08/16/2013 09:24:24
+ *  06/12/2014 18:46:46
  * 
  */
 public class TipoSolicitud {
 
     private Integer idTipoSolicitud;
     private String solicitud;
-    private Set<com.aprendoz_desarrollo.data.Novedades> novedadeses = new HashSet<com.aprendoz_desarrollo.data.Novedades>();
+    private Set<com.aprendoz_desarrollo.data.TransporteNovedades> transporteNovedadeses = new HashSet<com.aprendoz_desarrollo.data.TransporteNovedades>();
 
     public TipoSolicitud() {
     }
@@ -24,10 +24,10 @@ public class TipoSolicitud {
         this.solicitud = solicitud;
     }
 
-    public TipoSolicitud(Integer idTipoSolicitud, String solicitud, Set<com.aprendoz_desarrollo.data.Novedades> novedadeses) {
+    public TipoSolicitud(Integer idTipoSolicitud, String solicitud, Set<com.aprendoz_desarrollo.data.TransporteNovedades> transporteNovedadeses) {
         this.idTipoSolicitud = idTipoSolicitud;
         this.solicitud = solicitud;
-        this.novedadeses = novedadeses;
+        this.transporteNovedadeses = transporteNovedadeses;
     }
 
     public Integer getIdTipoSolicitud() {
@@ -46,12 +46,12 @@ public class TipoSolicitud {
         this.solicitud = solicitud;
     }
 
-    public Set<com.aprendoz_desarrollo.data.Novedades> getNovedadeses() {
-        return novedadeses;
+    public Set<com.aprendoz_desarrollo.data.TransporteNovedades> getTransporteNovedadeses() {
+        return transporteNovedadeses;
     }
 
-    public void setNovedadeses(Set<com.aprendoz_desarrollo.data.Novedades> novedadeses) {
-        this.novedadeses = novedadeses;
+    public void setTransporteNovedadeses(Set<com.aprendoz_desarrollo.data.TransporteNovedades> transporteNovedadeses) {
+        this.transporteNovedadeses = transporteNovedadeses;
     }
 
 }

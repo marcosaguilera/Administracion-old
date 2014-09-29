@@ -21,7 +21,7 @@ import com.wavemaker.runtime.service.TypedServiceReturn;
 
 /**
  *  Operations for service "aprendoz_desarrollo"
- *  03/12/2014 09:53:29
+ *  06/12/2014 18:51:39
  * 
  */
 @SuppressWarnings("unchecked")
@@ -31,6 +31,15 @@ public class Aprendoz_desarrollo
 
     private DataServiceManager dsMgr;
     private TaskManager taskMgr;
+
+    public com.aprendoz_desarrollo.data.TipoCosto getTipoCostoById(Integer id) {
+        List<com.aprendoz_desarrollo.data.TipoCosto> rtn = ((List<com.aprendoz_desarrollo.data.TipoCosto> ) dsMgr.invoke(taskMgr.getQueryTask(), (Aprendoz_desarrolloConstants.getTipoCostoByIdQueryName), id));
+        if (rtn.isEmpty()) {
+            return null;
+        } else {
+            return rtn.get(0);
+        }
+    }
 
     public List<SubjectsByGradeRtnType> subjectsByGrade(Integer _sy, Integer _grado) {
         return ((List<SubjectsByGradeRtnType> ) dsMgr.invoke(taskMgr.getQueryTask(), (Aprendoz_desarrolloConstants.subjectsByGradeQueryName), _sy, _grado));
@@ -49,21 +58,12 @@ public class Aprendoz_desarrollo
         }
     }
 
-    public com.aprendoz_desarrollo.data.Formulario5a getFormulario5aById(Integer id) {
-        List<com.aprendoz_desarrollo.data.Formulario5a> rtn = ((List<com.aprendoz_desarrollo.data.Formulario5a> ) dsMgr.invoke(taskMgr.getQueryTask(), (Aprendoz_desarrolloConstants.getFormulario5aByIdQueryName), id));
-        if (rtn.isEmpty()) {
-            return null;
-        } else {
-            return rtn.get(0);
-        }
+    public List<GetProcesoMatriculaRtnType> getProcesoMatricula(Integer idp) {
+        return ((List<GetProcesoMatriculaRtnType> ) dsMgr.invoke(taskMgr.getQueryTask(), (Aprendoz_desarrolloConstants.getProcesoMatriculaQueryName), idp));
     }
 
     public List<Asignatura> updateSubjects() {
         return ((List<Asignatura> ) dsMgr.invoke(taskMgr.getQueryTask(), (Aprendoz_desarrolloConstants.updateSubjectsQueryName)));
-    }
-
-    public List<GetProcesoMatriculaRtnType> getProcesoMatricula(Integer idp) {
-        return ((List<GetProcesoMatriculaRtnType> ) dsMgr.invoke(taskMgr.getQueryTask(), (Aprendoz_desarrolloConstants.getProcesoMatriculaQueryName), idp));
     }
 
     public com.aprendoz_desarrollo.data.output.GetNombreCompletoRtnType getNombreCompleto(String usuario) {
@@ -75,12 +75,12 @@ public class Aprendoz_desarrollo
         }
     }
 
-    public List<GetMaxSubjectByGradeRtnType> getMaxSubjectByGrade(Integer idgrado, Integer idsy) {
-        return ((List<GetMaxSubjectByGradeRtnType> ) dsMgr.invoke(taskMgr.getQueryTask(), (Aprendoz_desarrolloConstants.getMaxSubjectByGradeQueryName), idgrado, idsy));
-    }
-
     public List<GetTipoByUsernameRtnType> getTipoByUsername(String user) {
         return ((List<GetTipoByUsernameRtnType> ) dsMgr.invoke(taskMgr.getQueryTask(), (Aprendoz_desarrolloConstants.getTipoByUsernameQueryName), user));
+    }
+
+    public List<GetMaxSubjectByGradeRtnType> getMaxSubjectByGrade(Integer idgrado, Integer idsy) {
+        return ((List<GetMaxSubjectByGradeRtnType> ) dsMgr.invoke(taskMgr.getQueryTask(), (Aprendoz_desarrolloConstants.getMaxSubjectByGradeQueryName), idgrado, idsy));
     }
 
     public List<SubjectDetailsRtnType> subjectDetails(Integer idasignatura) {

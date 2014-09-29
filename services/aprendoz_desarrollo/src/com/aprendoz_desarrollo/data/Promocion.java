@@ -5,7 +5,7 @@ package com.aprendoz_desarrollo.data;
 
 /**
  *  aprendoz_desarrollo.Promocion
- *  08/16/2013 09:24:25
+ *  06/12/2014 18:46:45
  * 
  */
 public class Promocion {
@@ -18,6 +18,8 @@ public class Promocion {
     private String commentcomite;
     private Boolean autorizadoFinanciera;
     private String commentfinanc;
+    private Boolean autorizadoCra;
+    private String commentCra;
     private Boolean promovido;
     private String commentaprobado;
     private String commentpromovido;
@@ -28,13 +30,15 @@ public class Promocion {
     public Promocion() {
     }
 
-    public Promocion(Integer idPromocion, Boolean aprobado, Boolean autorizadoAcademico, String commentcomite, Boolean autorizadoFinanciera, String commentfinanc, Boolean promovido, String commentaprobado, String commentpromovido, Float calificacion, String calificacionChar, Boolean autorizadoPromAnticipada) {
+    public Promocion(Integer idPromocion, Boolean aprobado, Boolean autorizadoAcademico, String commentcomite, Boolean autorizadoFinanciera, String commentfinanc, Boolean autorizadoCra, String commentCra, Boolean promovido, String commentaprobado, String commentpromovido, Float calificacion, String calificacionChar, Boolean autorizadoPromAnticipada) {
         this.idPromocion = idPromocion;
         this.aprobado = aprobado;
         this.autorizadoAcademico = autorizadoAcademico;
         this.commentcomite = commentcomite;
         this.autorizadoFinanciera = autorizadoFinanciera;
         this.commentfinanc = commentfinanc;
+        this.autorizadoCra = autorizadoCra;
+        this.commentCra = commentCra;
         this.promovido = promovido;
         this.commentaprobado = commentaprobado;
         this.commentpromovido = commentpromovido;
@@ -43,7 +47,7 @@ public class Promocion {
         this.autorizadoPromAnticipada = autorizadoPromAnticipada;
     }
 
-    public Promocion(Integer idPromocion, Sy sy, Persona persona, Boolean aprobado, Boolean autorizadoAcademico, String commentcomite, Boolean autorizadoFinanciera, String commentfinanc, Boolean promovido, String commentaprobado, String commentpromovido, Float calificacion, String calificacionChar, Boolean autorizadoPromAnticipada) {
+    public Promocion(Integer idPromocion, Sy sy, Persona persona, Boolean aprobado, Boolean autorizadoAcademico, String commentcomite, Boolean autorizadoFinanciera, String commentfinanc, Boolean autorizadoCra, String commentCra, Boolean promovido, String commentaprobado, String commentpromovido, Float calificacion, String calificacionChar, Boolean autorizadoPromAnticipada) {
         this.idPromocion = idPromocion;
         this.sy = sy;
         this.persona = persona;
@@ -52,6 +56,8 @@ public class Promocion {
         this.commentcomite = commentcomite;
         this.autorizadoFinanciera = autorizadoFinanciera;
         this.commentfinanc = commentfinanc;
+        this.autorizadoCra = autorizadoCra;
+        this.commentCra = commentCra;
         this.promovido = promovido;
         this.commentaprobado = commentaprobado;
         this.commentpromovido = commentpromovido;
@@ -122,6 +128,22 @@ public class Promocion {
 
     public void setCommentfinanc(String commentfinanc) {
         this.commentfinanc = commentfinanc;
+    }
+
+    public Boolean getAutorizadoCra() {
+        return autorizadoCra;
+    }
+
+    public void setAutorizadoCra(Boolean autorizadoCra) {
+        this.autorizadoCra = autorizadoCra;
+    }
+
+    public String getCommentCra() {
+        return commentCra;
+    }
+
+    public void setCommentCra(String commentCra) {
+        this.commentCra = commentCra;
     }
 
     public Boolean getPromovido() {

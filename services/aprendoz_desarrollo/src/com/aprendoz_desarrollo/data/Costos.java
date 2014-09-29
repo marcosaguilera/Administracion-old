@@ -7,7 +7,7 @@ import java.util.Set;
 
 /**
  *  aprendoz_desarrollo.Costos
- *  08/16/2013 09:24:25
+ *  06/12/2014 18:46:45
  * 
  */
 public class Costos {
@@ -23,12 +23,15 @@ public class Costos {
     private Boolean obligatorio;
     private Boolean positivo;
     private Boolean anual;
+    private Integer tipoCosto;
     private Set<com.aprendoz_desarrollo.data.InscAlumCosto> inscAlumCostos = new HashSet<com.aprendoz_desarrollo.data.InscAlumCosto>();
+    private Set<com.aprendoz_desarrollo.data.Educom> educoms = new HashSet<com.aprendoz_desarrollo.data.Educom>();
+    private Set<com.aprendoz_desarrollo.data.InscAlumCostoCopy> inscAlumCostoCopies = new HashSet<com.aprendoz_desarrollo.data.InscAlumCostoCopy>();
 
     public Costos() {
     }
 
-    public Costos(Integer idCosto, String codigo, String nombreProducto, String descripcion, Double valor, Boolean nuevo, Boolean obligatorio, Boolean positivo, Boolean anual) {
+    public Costos(Integer idCosto, String codigo, String nombreProducto, String descripcion, Double valor, Boolean nuevo, Boolean obligatorio, Boolean positivo, Boolean anual, Integer tipoCosto) {
         this.idCosto = idCosto;
         this.codigo = codigo;
         this.nombreProducto = nombreProducto;
@@ -38,9 +41,10 @@ public class Costos {
         this.obligatorio = obligatorio;
         this.positivo = positivo;
         this.anual = anual;
+        this.tipoCosto = tipoCosto;
     }
 
-    public Costos(Integer idCosto, Grado grado, Sy sy, String codigo, String nombreProducto, String descripcion, Double valor, Boolean nuevo, Boolean obligatorio, Boolean positivo, Boolean anual, Set<com.aprendoz_desarrollo.data.InscAlumCosto> inscAlumCostos) {
+    public Costos(Integer idCosto, Grado grado, Sy sy, String codigo, String nombreProducto, String descripcion, Double valor, Boolean nuevo, Boolean obligatorio, Boolean positivo, Boolean anual, Integer tipoCosto, Set<com.aprendoz_desarrollo.data.InscAlumCosto> inscAlumCostos, Set<com.aprendoz_desarrollo.data.Educom> educoms, Set<com.aprendoz_desarrollo.data.InscAlumCostoCopy> inscAlumCostoCopies) {
         this.idCosto = idCosto;
         this.grado = grado;
         this.sy = sy;
@@ -52,7 +56,10 @@ public class Costos {
         this.obligatorio = obligatorio;
         this.positivo = positivo;
         this.anual = anual;
+        this.tipoCosto = tipoCosto;
         this.inscAlumCostos = inscAlumCostos;
+        this.educoms = educoms;
+        this.inscAlumCostoCopies = inscAlumCostoCopies;
     }
 
     public Integer getIdCosto() {
@@ -143,12 +150,36 @@ public class Costos {
         this.anual = anual;
     }
 
+    public Integer getTipoCosto() {
+        return tipoCosto;
+    }
+
+    public void setTipoCosto(Integer tipoCosto) {
+        this.tipoCosto = tipoCosto;
+    }
+
     public Set<com.aprendoz_desarrollo.data.InscAlumCosto> getInscAlumCostos() {
         return inscAlumCostos;
     }
 
     public void setInscAlumCostos(Set<com.aprendoz_desarrollo.data.InscAlumCosto> inscAlumCostos) {
         this.inscAlumCostos = inscAlumCostos;
+    }
+
+    public Set<com.aprendoz_desarrollo.data.Educom> getEducoms() {
+        return educoms;
+    }
+
+    public void setEducoms(Set<com.aprendoz_desarrollo.data.Educom> educoms) {
+        this.educoms = educoms;
+    }
+
+    public Set<com.aprendoz_desarrollo.data.InscAlumCostoCopy> getInscAlumCostoCopies() {
+        return inscAlumCostoCopies;
+    }
+
+    public void setInscAlumCostoCopies(Set<com.aprendoz_desarrollo.data.InscAlumCostoCopy> inscAlumCostoCopies) {
+        this.inscAlumCostoCopies = inscAlumCostoCopies;
     }
 
 }

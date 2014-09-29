@@ -1,0 +1,78 @@
+{
+	"methods": [{
+		"name": "deleteSubject",
+		"parameters": [{
+			"name": "idasignatura",
+			"type": "java.lang.Integer"
+		}],
+		"returnType": "java.lang.Integer"
+	}, {
+		"name": "getMaxSubjectByGrade",
+		"parameters": [{
+			"name": "idgrado",
+			"type": "java.lang.Integer"
+		}, {
+			"name": "idsy",
+			"type": "java.lang.Integer"
+		}],
+		"returnType": "[com.aprendoz_desarrollo.data.output.GetMaxSubjectByGradeRtnType]"
+	}, {
+		"name": "getNombreCompleto",
+		"parameters": [{
+			"name": "usuario",
+			"type": "java.lang.String"
+		}],
+		"returnType": "com.aprendoz_desarrollo.data.output.GetNombreCompletoRtnType"
+	}, {
+		"name": "getProcesoMatricula",
+		"parameters": [{
+			"name": "idp",
+			"type": "java.lang.Integer"
+		}],
+		"returnType": "[com.aprendoz_desarrollo.data.output.GetProcesoMatriculaRtnType]"
+	}, {
+		"name": "getTipoByUsername",
+		"parameters": [{
+			"name": "user",
+			"type": "java.lang.String"
+		}],
+		"returnType": "[com.aprendoz_desarrollo.data.output.GetTipoByUsernameRtnType]"
+	}, {
+		"name": "getTipoCostoById",
+		"parameters": [{
+			"name": "id",
+			"type": "java.lang.Integer"
+		}],
+		"returnType": "com.aprendoz_desarrollo.data.TipoCosto"
+	}, {
+		"name": "hQLlsCursos",
+		"parameters": [{
+			"name": "idg",
+			"type": "java.lang.Integer"
+		}],
+		"returnType": "[com.aprendoz_desarrollo.data.output.HQLlsCursosRtnType]"
+	}, {
+		"name": "subjectDetails",
+		"parameters": [{
+			"name": "idasignatura",
+			"type": "java.lang.Integer"
+		}],
+		"returnType": "[com.aprendoz_desarrollo.data.output.SubjectDetailsRtnType]"
+	}, {
+		"name": "subjectsByGrade",
+		"parameters": [{
+			"name": "_sy",
+			"type": "java.lang.Integer"
+		}, {
+			"name": "_grado",
+			"type": "java.lang.Integer"
+		}],
+		"returnType": "[com.aprendoz_desarrollo.data.output.SubjectsByGradeRtnType]"
+	}, {
+		"name": "updateSubjects",
+		"parameters": null,
+		"returnType": "[com.aprendoz_desarrollo.data.Asignatura]"
+	}],
+	"serviceType": "JSON-RPC",
+	"serviceURL": "aprendoz_desarrollo.json"
+}

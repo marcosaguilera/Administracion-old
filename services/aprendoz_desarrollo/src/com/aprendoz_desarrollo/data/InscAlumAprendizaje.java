@@ -6,7 +6,7 @@ import java.util.Date;
 
 /**
  *  aprendoz_desarrollo.InscAlumAprendizaje
- *  08/16/2013 09:24:25
+ *  06/12/2014 18:46:46
  * 
  */
 public class InscAlumAprendizaje {
@@ -19,20 +19,22 @@ public class InscAlumAprendizaje {
     private Float calificacionNum;
     private String comentario;
     private Date fechaIngreso;
+    private String usuario;
 
     public InscAlumAprendizaje() {
     }
 
-    public InscAlumAprendizaje(Integer idInscAlumAprendizaje, Date fechaLogro, String calificacion, Float calificacionNum, String comentario, Date fechaIngreso) {
+    public InscAlumAprendizaje(Integer idInscAlumAprendizaje, Date fechaLogro, String calificacion, Float calificacionNum, String comentario, Date fechaIngreso, String usuario) {
         this.idInscAlumAprendizaje = idInscAlumAprendizaje;
         this.fechaLogro = fechaLogro;
         this.calificacion = calificacion;
         this.calificacionNum = calificacionNum;
         this.comentario = comentario;
         this.fechaIngreso = fechaIngreso;
+        this.usuario = usuario;
     }
 
-    public InscAlumAprendizaje(Integer idInscAlumAprendizaje, Persona persona, Aprendizaje aprendizaje, Date fechaLogro, String calificacion, Float calificacionNum, String comentario, Date fechaIngreso) {
+    public InscAlumAprendizaje(Integer idInscAlumAprendizaje, Persona persona, Aprendizaje aprendizaje, Date fechaLogro, String calificacion, Float calificacionNum, String comentario, Date fechaIngreso, String usuario) {
         this.idInscAlumAprendizaje = idInscAlumAprendizaje;
         this.persona = persona;
         this.aprendizaje = aprendizaje;
@@ -41,6 +43,7 @@ public class InscAlumAprendizaje {
         this.calificacionNum = calificacionNum;
         this.comentario = comentario;
         this.fechaIngreso = fechaIngreso;
+        this.usuario = usuario;
     }
 
     public Integer getIdInscAlumAprendizaje() {
@@ -105,6 +108,14 @@ public class InscAlumAprendizaje {
 
     public void setFechaIngreso(Date fechaIngreso) {
         this.fechaIngreso = fechaIngreso;
+    }
+
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
     }
 
 }

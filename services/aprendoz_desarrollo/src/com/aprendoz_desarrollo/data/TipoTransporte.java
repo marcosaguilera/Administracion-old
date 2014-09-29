@@ -7,7 +7,7 @@ import java.util.Set;
 
 /**
  *  aprendoz_desarrollo.TipoTransporte
- *  08/16/2013 09:24:25
+ *  06/12/2014 18:46:45
  * 
  */
 public class TipoTransporte {
@@ -15,7 +15,7 @@ public class TipoTransporte {
     private Integer idtipoTransporte;
     private String tipoTransporte;
     private String descripcion;
-    private Set<com.aprendoz_desarrollo.data.Rutas> rutases = new HashSet<com.aprendoz_desarrollo.data.Rutas>();
+    private Set<com.aprendoz_desarrollo.data.TransporteRutas> transporteRutases = new HashSet<com.aprendoz_desarrollo.data.TransporteRutas>();
 
     public TipoTransporte() {
     }
@@ -26,11 +26,11 @@ public class TipoTransporte {
         this.descripcion = descripcion;
     }
 
-    public TipoTransporte(Integer idtipoTransporte, String tipoTransporte, String descripcion, Set<com.aprendoz_desarrollo.data.Rutas> rutases) {
+    public TipoTransporte(Integer idtipoTransporte, String tipoTransporte, String descripcion, Set<com.aprendoz_desarrollo.data.TransporteRutas> transporteRutases) {
         this.idtipoTransporte = idtipoTransporte;
         this.tipoTransporte = tipoTransporte;
         this.descripcion = descripcion;
-        this.rutases = rutases;
+        this.transporteRutases = transporteRutases;
     }
 
     public Integer getIdtipoTransporte() {
@@ -57,12 +57,12 @@ public class TipoTransporte {
         this.descripcion = descripcion;
     }
 
-    public Set<com.aprendoz_desarrollo.data.Rutas> getRutases() {
-        return rutases;
+    public Set<com.aprendoz_desarrollo.data.TransporteRutas> getTransporteRutases() {
+        return transporteRutases;
     }
 
-    public void setRutases(Set<com.aprendoz_desarrollo.data.Rutas> rutases) {
-        this.rutases = rutases;
+    public void setTransporteRutases(Set<com.aprendoz_desarrollo.data.TransporteRutas> transporteRutases) {
+        this.transporteRutases = transporteRutases;
     }
 
 }

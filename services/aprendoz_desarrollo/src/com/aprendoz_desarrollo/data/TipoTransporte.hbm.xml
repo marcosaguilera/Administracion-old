@@ -11,11 +11,11 @@
         <property name="descripcion" type="string">
             <column name="descripcion" length="65535" not-null="true"/>
         </property>
-        <set name="rutases" inverse="true">
+        <set name="transporteRutases" inverse="true">
             <key>
                 <column name="tipo_transporte_id_tipo_transporte" not-null="true"/>
             </key>
-            <one-to-many class="com.aprendoz_desarrollo.data.Rutas"/>
+            <one-to-many class="com.aprendoz_desarrollo.data.TransporteRutas"/>
         </set>
     </class>
 </hibernate-mapping>

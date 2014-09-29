@@ -3,7 +3,7 @@
     <class name="com.aprendoz_desarrollo.data.Eje" table="Eje" catalog="aprendoz_desarrollo" dynamic-insert="false" dynamic-update="false">
         <id name="idEje" type="integer">
             <column name="Id_Eje"/>
-            <generator class="assigned"/>
+            <generator class="identity"/>
         </id>
         <property name="ejeTematico" type="string">
             <column name="Eje_Tematico" length="300"/>

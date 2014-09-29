@@ -8,6 +8,12 @@
         <property name="tipoPersona" type="string">
             <column name="Tipo_Persona" length="45"/>
         </property>
+        <set name="accAuthorizations" inverse="true">
+            <key>
+                <column name="id_tipo_persona"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.AccAuthorization"/>
+        </set>
         <set name="inscPersonaGrupoFamiliars" inverse="true">
             <key>
                 <column name="Tipo_Persona_Id_Tipo_Persona" not-null="true"/>

@@ -1,12 +1,13 @@
 
 package com.aprendoz_desarrollo.data;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 
 /**
  *  aprendoz_desarrollo.InscAlumCosto
- *  08/16/2013 09:24:24
+ *  06/12/2014 18:46:46
  * 
  */
 public class InscAlumCosto {
@@ -16,7 +17,7 @@ public class InscAlumCosto {
     private Persona persona;
     private Costos costos;
     private Boolean inscrito;
-    private Integer descuentoPorcentaje;
+    private BigDecimal descuentoPorcentaje;
     private Double descuentoValor;
     private Double valorFinalDescuento;
     private Date fechaInicio;
@@ -26,7 +27,7 @@ public class InscAlumCosto {
     public InscAlumCosto() {
     }
 
-    public InscAlumCosto(Integer idInscAlumCosto, Boolean inscrito, Integer descuentoPorcentaje, Double descuentoValor, Double valorFinalDescuento, Date fechaInicio, Date fechaFin, String observacion) {
+    public InscAlumCosto(Integer idInscAlumCosto, Boolean inscrito, BigDecimal descuentoPorcentaje, Double descuentoValor, Double valorFinalDescuento, Date fechaInicio, Date fechaFin, String observacion) {
         this.idInscAlumCosto = idInscAlumCosto;
         this.inscrito = inscrito;
         this.descuentoPorcentaje = descuentoPorcentaje;
@@ -37,7 +38,7 @@ public class InscAlumCosto {
         this.observacion = observacion;
     }
 
-    public InscAlumCosto(Integer idInscAlumCosto, Sy sy, Persona persona, Costos costos, Boolean inscrito, Integer descuentoPorcentaje, Double descuentoValor, Double valorFinalDescuento, Date fechaInicio, Date fechaFin, String observacion) {
+    public InscAlumCosto(Integer idInscAlumCosto, Sy sy, Persona persona, Costos costos, Boolean inscrito, BigDecimal descuentoPorcentaje, Double descuentoValor, Double valorFinalDescuento, Date fechaInicio, Date fechaFin, String observacion) {
         this.idInscAlumCosto = idInscAlumCosto;
         this.sy = sy;
         this.persona = persona;
@@ -91,11 +92,11 @@ public class InscAlumCosto {
         this.inscrito = inscrito;
     }
 
-    public Integer getDescuentoPorcentaje() {
+    public BigDecimal getDescuentoPorcentaje() {
         return descuentoPorcentaje;
     }
 
-    public void setDescuentoPorcentaje(Integer descuentoPorcentaje) {
+    public void setDescuentoPorcentaje(BigDecimal descuentoPorcentaje) {
         this.descuentoPorcentaje = descuentoPorcentaje;
     }
 

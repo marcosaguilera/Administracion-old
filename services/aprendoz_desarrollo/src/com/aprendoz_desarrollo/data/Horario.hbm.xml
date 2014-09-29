@@ -8,8 +8,8 @@
         <property name="numeroSesion" type="integer">
             <column name="numero_sesion" not-null="true"/>
         </property>
-        <property name="dia" type="integer">
-            <column name="dia" not-null="true"/>
+        <property name="dia" type="string">
+            <column name="dia" length="20" not-null="true"/>
         </property>
         <many-to-one name="curso" class="com.aprendoz_desarrollo.data.Curso" cascade="none">
             <column name="curso_id_curso" not-null="true"/>

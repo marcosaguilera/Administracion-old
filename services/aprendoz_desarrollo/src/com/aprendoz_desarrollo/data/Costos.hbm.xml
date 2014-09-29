@@ -9,7 +9,7 @@
             <column name="codigo" length="6" not-null="true"/>
         </property>
         <property name="nombreProducto" type="string">
-            <column name="nombre_producto" length="50" not-null="true"/>
+            <column name="nombre_producto" length="200" not-null="true"/>
         </property>
         <property name="descripcion" type="string">
             <column name="descripcion" length="65535"/>
@@ -29,6 +29,9 @@
         <property name="anual" type="boolean">
             <column name="anual" not-null="true"/>
         </property>
+        <property name="tipoCosto" type="integer">
+            <column name="tipo_costo"/>
+        </property>
         <many-to-one name="grado" class="com.aprendoz_desarrollo.data.Grado" cascade="none">
             <column name="Grado_Id_Grado" not-null="true"/>
         </many-to-one>
@@ -40,6 +43,18 @@
                 <column name="costo_Id_costo" not-null="true"/>
             </key>
             <one-to-many class="com.aprendoz_desarrollo.data.InscAlumCosto"/>
+        </set>
+        <set name="educoms" inverse="true">
+            <key>
+                <column name="costo_id_costo" not-null="true"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.Educom"/>
+        </set>
+        <set name="inscAlumCostoCopies" inverse="true">
+            <key>
+                <column name="costo_Id_costo" not-null="true"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.InscAlumCostoCopy"/>
         </set>
     </class>
 </hibernate-mapping>

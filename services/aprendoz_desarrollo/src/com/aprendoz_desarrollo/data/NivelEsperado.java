@@ -7,7 +7,7 @@ import java.util.Set;
 
 /**
  *  aprendoz_desarrollo.NivelEsperado
- *  08/16/2013 09:24:24
+ *  06/12/2014 18:46:46
  * 
  */
 public class NivelEsperado {
@@ -15,6 +15,7 @@ public class NivelEsperado {
     private Integer idNivelEsperado;
     private String nivelEsperado;
     private Set<com.aprendoz_desarrollo.data.Aprendizaje> aprendizajes = new HashSet<com.aprendoz_desarrollo.data.Aprendizaje>();
+    private Set<com.aprendoz_desarrollo.data.AprendizajesAsignaturas> aprendizajesAsignaturases = new HashSet<com.aprendoz_desarrollo.data.AprendizajesAsignaturas>();
 
     public NivelEsperado() {
     }
@@ -24,10 +25,11 @@ public class NivelEsperado {
         this.nivelEsperado = nivelEsperado;
     }
 
-    public NivelEsperado(Integer idNivelEsperado, String nivelEsperado, Set<com.aprendoz_desarrollo.data.Aprendizaje> aprendizajes) {
+    public NivelEsperado(Integer idNivelEsperado, String nivelEsperado, Set<com.aprendoz_desarrollo.data.Aprendizaje> aprendizajes, Set<com.aprendoz_desarrollo.data.AprendizajesAsignaturas> aprendizajesAsignaturases) {
         this.idNivelEsperado = idNivelEsperado;
         this.nivelEsperado = nivelEsperado;
         this.aprendizajes = aprendizajes;
+        this.aprendizajesAsignaturases = aprendizajesAsignaturases;
     }
 
     public Integer getIdNivelEsperado() {
@@ -52,6 +54,14 @@ public class NivelEsperado {
 
     public void setAprendizajes(Set<com.aprendoz_desarrollo.data.Aprendizaje> aprendizajes) {
         this.aprendizajes = aprendizajes;
+    }
+
+    public Set<com.aprendoz_desarrollo.data.AprendizajesAsignaturas> getAprendizajesAsignaturases() {
+        return aprendizajesAsignaturases;
+    }
+
+    public void setAprendizajesAsignaturases(Set<com.aprendoz_desarrollo.data.AprendizajesAsignaturas> aprendizajesAsignaturases) {
+        this.aprendizajesAsignaturases = aprendizajesAsignaturases;
     }
 
 }

@@ -6,7 +6,7 @@ import java.util.Date;
 
 /**
  *  aprendoz_desarrollo.ImportacionDavivienda
- *  08/16/2013 09:24:25
+ *  06/12/2014 18:46:46
  * 
  */
 public class ImportacionDavivienda {
@@ -15,19 +15,19 @@ public class ImportacionDavivienda {
     private String tarjeta;
     private String nombresocio;
     private String numeroidentificacion;
-    private String estado;
+    private String codigo;
     private Date fechaCreacion;
     private Date fechaModificacion;
 
     public ImportacionDavivienda() {
     }
 
-    public ImportacionDavivienda(Integer idImportacionDavivienda, String tarjeta, String nombresocio, String numeroidentificacion, String estado, Date fechaCreacion, Date fechaModificacion) {
+    public ImportacionDavivienda(Integer idImportacionDavivienda, String tarjeta, String nombresocio, String numeroidentificacion, String codigo, Date fechaCreacion, Date fechaModificacion) {
         this.idImportacionDavivienda = idImportacionDavivienda;
         this.tarjeta = tarjeta;
         this.nombresocio = nombresocio;
         this.numeroidentificacion = numeroidentificacion;
-        this.estado = estado;
+        this.codigo = codigo;
         this.fechaCreacion = fechaCreacion;
         this.fechaModificacion = fechaModificacion;
     }
@@ -64,12 +64,12 @@ public class ImportacionDavivienda {
         this.numeroidentificacion = numeroidentificacion;
     }
 
-    public String getEstado() {
-        return estado;
+    public String getCodigo() {
+        return codigo;
     }
 
-    public void setEstado(String estado) {
-        this.estado = estado;
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
     }
 
     public Date getFechaCreacion() {
