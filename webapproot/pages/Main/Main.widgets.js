@@ -267,7 +267,7 @@ Main.widgets = {
 				logout_img: ["wm.Picture", {"height":"19px","border":"0","width":"20px"}, {"onclick":"logout"}]
 			}],
 			panel2: ["wm.Panel", {"height":"100%","width":"100%","layoutKind":"left-to-right","roles":["5","6","7","8","9","10","11","4","16","17","19","18","20","22","21","13","14","15"]}, {}, {
-				panel_menuPrincipal: ["wm.Panel", {"height":"100%","width":"154px","padding":"8","lock":true}, {}, {
+				panel_menuPrincipal: ["wm.Panel", {"height":"100%","width":"154px","lock":true,"padding":"8"}, {}, {
 					bPersonas: ["wm.Button", {"_classes":{"domNode":["wm_BackgroundColor_White","wm_FontSizePx_16px"]},"height":"48px","width":"100%","borderColor":"#000","caption":"Personas","iconWidth":"50px","iconHeight":"50px","roles":["10","11","20","21","22","23","24","25","7","9","13","14","15","16","17"]}, {"onclick":"bPersonasClick"}],
 					bSecretaria: ["wm.Button", {"_classes":{"domNode":["wm_FontSizePx_16px"]},"height":"48px","width":"96px","borderColor":"#4D90FE","caption":"Secretaría","roles":["11","20","21","22","23","24","25","10"]}, {"onclick":"bSecretariaClick"}],
 					bAlumnos: ["wm.Button", {"_classes":{"domNode":["wm_BackgroundColor_White","wm_FontSizePx_16px"]},"height":"48px","width":"96px","borderColor":"#3C9300","caption":"Alumnos","iconHeight":"50px","roles":["10","20","21","22","24","11","23"]}, {"onclick":"bAlumnosClick"}],
@@ -394,7 +394,7 @@ Main.widgets = {
 							}]
 						}]
 					}],
-					persona_panel: ["wm.Panel", {"_classes":{"domNode":["wm_BackgroundColor_White"]},"height":"100%","width":"100%","horizontalAlign":"left","verticalAlign":"top","border":"2","layoutKind":"left-to-right","borderColor":"#059618"}, {}, {
+					persona_panel: ["wm.Panel", {"_classes":{"domNode":["wm_BackgroundColor_White"]},"height":"100%","width":"100%","horizontalAlign":"left","verticalAlign":"top","layoutKind":"left-to-right","border":"2","borderColor":"#059618"}, {}, {
 						personaDataGrid1: ["wm.DataGrid", {"_classes":{"domNode":["omgDataGrid","wm_FontSizePx_10px"]},"border":"0"}, {"onSelected":"personaDataGrid1Selected"}, {
 							binding: ["wm.Binding", {}, {}, {
 								wire: ["wm.Wire", {"targetProperty":"dataSet","source":"l_personas_personaLiveVariable1","expression":undefined}, {}]
@@ -741,7 +741,7 @@ Main.widgets = {
 							}]
 						}]
 					}],
-					ficha_salud_panel: ["wm.Panel", {"height":"100%","width":"100%","horizontalAlign":"left","verticalAlign":"top","border":"2","layoutKind":"left-to-right","lock":true,"borderColor":"#AD1A10","showing":false}, {}, {
+					ficha_salud_panel: ["wm.Panel", {"height":"100%","width":"100%","horizontalAlign":"left","verticalAlign":"top","layoutKind":"left-to-right","lock":true,"border":"2","borderColor":"#AD1A10","showing":false}, {}, {
 						fichamedicaLiveForm1: ["wm.LiveForm", {"height":"100%","verticalAlign":"top","horizontalAlign":"left","readonly":true,"width":"50%"}, {"onSuccess":"fichamedicaLiveVariable1"}, {
 							binding: ["wm.Binding", {}, {}, {
 								wire: ["wm.Wire", {"targetProperty":"dataSet","source":"fichamedicaDataGrid1.selectedItem","expression":undefined}, {}],
@@ -953,7 +953,7 @@ Main.widgets = {
 						}]
 					}]
 				}],
-				panel_docentes: ["wm.Panel", {"height":"100%","width":"100%","horizontalAlign":"left","verticalAlign":"top","border":"1","lock":true,"borderColor":"#000000","showing":false}, {}, {
+				panel_docentes: ["wm.Panel", {"height":"100%","width":"100%","horizontalAlign":"left","verticalAlign":"top","lock":true,"border":"1","borderColor":"#000000","showing":false}, {}, {
 					panel45: ["wm.Panel", {"height":"100%","width":"100%","horizontalAlign":"left","verticalAlign":"top","layoutKind":"left-to-right"}, {}, {
 						panel17: ["wm.Panel", {"height":"255%","width":"100%","horizontalAlign":"left","verticalAlign":"top","layoutKind":"left-to-right"}, {}, {
 							layers5: ["wm.Layers", {"width":"120%"}, {}, {
@@ -1201,7 +1201,7 @@ Main.widgets = {
 						}]
 					}]
 				}],
-				panel_alumnos: ["wm.Panel", {"_classes":{"domNode":["wm_SilverBlueTheme_LightBlueInsetPanel"]},"height":"100%","width":"100%","horizontalAlign":"left","verticalAlign":"top","padding":"2","lock":true,"showing":false}, {}, {
+				panel_alumnos: ["wm.Panel", {"_classes":{"domNode":["wm_SilverBlueTheme_LightBlueInsetPanel"]},"height":"100%","width":"100%","horizontalAlign":"left","verticalAlign":"top","lock":true,"padding":"2","showing":false}, {}, {
 					panel13: ["wm.Panel", {"_classes":{"domNode":["wm_FontSizePx_14px","wm_BackgroundColor_VeryLightGray"]},"height":"40px","width":"100%","horizontalAlign":"right","verticalAlign":"middle","layoutKind":"left-to-right"}, {}, {
 						selectEditor3: ["wm.SelectEditor", {"width":"200px","caption":"Periodo Escolar"}, {}, {
 							binding: ["wm.Binding", {}, {}, {
@@ -1398,14 +1398,14 @@ Main.widgets = {
 							secretaria_panel_contenido: ["wm.Panel", {"height":"100%","width":"100%","horizontalAlign":"left","verticalAlign":"top","layoutKind":"left-to-right"}, {}, {
 								tabLayers1: ["wm.TabLayers", {}, {}, {
 									Certificados: ["wm.Layer", {"caption":"Certificados","horizontalAlign":"left","verticalAlign":"top"}, {}, {
-										secreatria_panel_menu: ["wm.Panel", {"_classes":{"domNode":["wm_SilverBlueTheme_ToolBar"]},"height":"32px","width":"100%","horizontalAlign":"left","verticalAlign":"middle","padding":"2","layoutKind":"left-to-right","borderColor":"#4D90FE"}, {}, {
+										secreatria_panel_menu: ["wm.Panel", {"_classes":{"domNode":["wm_SilverBlueTheme_ToolBar"]},"height":"32px","width":"100%","horizontalAlign":"left","verticalAlign":"middle","layoutKind":"left-to-right","padding":"2","borderColor":"#4D90FE"}, {}, {
 											bMostrar: ["wm.Button", {"height":"17px","width":"19px","borderColor":"#4D90FE","caption":"","border":"0","margin":"0","iconWidth":"29px","iconHeight":"29px"}, {"onclick":"bMostrarClick"}],
 											bOcultar: ["wm.Button", {"_classes":{"domNode":["wm_SilverBlueTheme_ToolBar"]},"height":"29px","width":"31px","caption":"","border":"0","margin":"2","hint":"Ocultar opcion de Reportes","iconUrl":"resources/images/up.png","iconWidth":"29px","iconHeight":"29px","showing":false}, {"onclick":"bOcultarClick"}],
 											label20: ["wm.Label", {"height":"100%","width":"350%","border":"0","caption":"Importante: Para crear un reporte (PDF) asegurese de seleccionar primero un estudiante."}, {}, {
 												format: ["wm.DataFormatter", {}, {}]
 											}]
 										}],
-										acciones: ["wm.Panel", {"_classes":{"domNode":["wm_SilverBlueTheme_LightBlueInsetPanel","wm_Border_BottomStyleCurved4px"]},"height":"146px","width":"100%","horizontalAlign":"left","verticalAlign":"top","border":"1","layoutKind":"left-to-right","borderColor":"#4D90FE"}, {}, {
+										acciones: ["wm.Panel", {"_classes":{"domNode":["wm_SilverBlueTheme_LightBlueInsetPanel","wm_Border_BottomStyleCurved4px"]},"height":"146px","width":"100%","horizontalAlign":"left","verticalAlign":"top","layoutKind":"left-to-right","border":"1","borderColor":"#4D90FE"}, {}, {
 											layers14: ["wm.Layers", {"width":"286px"}, {}, {
 												layer14: ["wm.Layer", {"caption":"layer14","horizontalAlign":"left","verticalAlign":"top"}, {}, {
 													label21: ["wm.Label", {"_classes":{"domNode":["wm_FontSizePx_12px"]},"height":"33px","width":"100%","border":"0","caption":"Tipo certificado"}, {}, {
@@ -1985,7 +1985,7 @@ Main.widgets = {
 						}]
 					}]
 				}],
-				panel_bienvenida: ["wm.Panel", {"_classes":{"domNode":["wm_BackgroundColor_VeryLightGray"]},"height":"100%","width":"100%","horizontalAlign":"left","verticalAlign":"top","padding":"100","lock":true,"showing":false}, {}, {
+				panel_bienvenida: ["wm.Panel", {"_classes":{"domNode":["wm_BackgroundColor_VeryLightGray"]},"height":"100%","width":"100%","horizontalAlign":"left","verticalAlign":"top","lock":true,"padding":"100","showing":false}, {}, {
 					picture5: ["wm.Picture", {"_classes":{"domNode":["wm_BackgroundColor_White"]},"height":"160px","border":"0","width":"100%","source":"resources/LOGO%20APRENDOZ.jpg"}, {}],
 					staticText: ["wm.Label", {"_classes":{"domNode":["wm_FontSizePx_24px"]},"height":"48px","width":"100%","border":"0","caption":"BIENVENIDO A APRENDOZ","align":"center"}, {}, {
 						format: ["wm.DataFormatter", {}, {}]
